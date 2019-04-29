@@ -18,6 +18,9 @@
                     <div class="panel-body">
                         <form role="form">
                             <div class="row">
+                                 <div class="form-group col-xs-12">
+                                        <input type="password" name="correo" id="pass" class="form-control input-sm floatlabel" placeholder="Correo Electronico">
+                                </div>
                                 <div class="form-group col-xs-12">
                                         <input type="password" name="contraseña" id="pass" class="form-control input-sm floatlabel" placeholder="Introducir Contraseña">
                                 </div>

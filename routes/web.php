@@ -12,12 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('inicio');
 });
 
 
-Route::get('/inicio', function () {
-    return view('inicio');
+Route::get('/login', function () {
+    return view('login');
 });
 
 
@@ -27,4 +27,8 @@ Route::get('/registro', function () {
 
 Route::get('/recuperar', function () {
     return view('recuperar');
+});
+
+Route::get('/resultado', function () {
+    return view('resultado');
 });

@@ -56,7 +56,9 @@
                                  </select>
                               </div>
                               <div class="persent-one less-btn">
-                                 <input type="Submit" name="submit" value="Search" class="btn btn-info cst-btn" id="srch">
+                                <a href="{{ asset('resultado') }}">
+                                 <input type="button" name="submit" value="Search" class="btn btn-info cst-btn" id="srch">
+                                 </a>
                               </div>
                            </div>
                            <!-- flight tab -->
