@@ -32,3 +32,7 @@ Route::get('/recuperar', function () {
 Route::get('/resultado', function () {
     return view('resultado');
 });
+
+Route::get('/datosviajeros', function () {
+    return view('datosViajeros');
+});
