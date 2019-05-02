@@ -11,12 +11,13 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('inicio');
 });
 
 
-Route::get('/login', function () {
+Route::get('/login2', function () {
     return view('login');
 });
 
@@ -44,6 +45,6 @@ Route::get('/backend', function () {
 
 
 
-//Auth::routes();
+Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
