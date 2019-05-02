@@ -13,6 +13,7 @@ div.bhoechie-tab-container{
   background-clip: padding-box;
   opacity: 0.97;
   filter: alpha(opacity=97);
+
 }
 div.bhoechie-tab-menu{
   padding-right: 0;
@@ -65,4 +66,13 @@ div.bhoechie-tab-content{
 
 div.bhoechie-tab div.bhoechie-tab-content:not(.active){
   display: none;
+}
+div.container{
+  margin-right: 1%;
+  margin-top: 5%;
+  height: 100% !important;
+}
+
+i{
+  font-size: 30px;
 }
