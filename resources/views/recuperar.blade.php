@@ -2,7 +2,7 @@
     
 <title>registro</title>
 
-@include('includes.head');
+@include('includes.in-recuperar');
 
 <div class="container">
     <div class="row centered-form">
