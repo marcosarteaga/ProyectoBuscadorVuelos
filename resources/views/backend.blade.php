@@ -1,24 +1,18 @@
 @include('includes.in-backend');
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <div class="container">
 	<div class="row">
-        <div class="col-lg-5 col-md-5 col-sm-8 col-xs-9 bhoechie-tab-container">
+        <div class="col-lg-10 col-md-5 col-sm-8 col-xs-9 bhoechie-tab-container">
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
               <div class="list-group">
                 <a href="#" class="list-group-item active text-center">
-                  <h4 class="glyphicon glyphicon-plane"></h4><br/>Flight
+                  <i class="fas fa-ticket-alt"></i><br/>Billetes Vendidos
                 </a>
                 <a href="#" class="list-group-item text-center">
-                  <h4 class="glyphicon glyphicon-road"></h4><br/>Train
+                 <i class="fas fa-coins" ></i><br/>Comisión
                 </a>
                 <a href="#" class="list-group-item text-center">
-                  <h4 class="glyphicon glyphicon-home"></h4><br/>Hotel
-                </a>
-                <a href="#" class="list-group-item text-center">
-                  <h4 class="glyphicon glyphicon-cutlery"></h4><br/>Restaurant
-                </a>
-                <a href="#" class="list-group-item text-center">
-                  <h4 class="glyphicon glyphicon-credit-card"></h4><br/>Credit Card
+                  <i class="fas fa-tags"></i><br/>Ofertas
                 </a>
               </div>
             </div>
@@ -46,20 +40,6 @@
                       <h1 class="glyphicon glyphicon-home" style="font-size:12em;color:#55518a"></h1>
                       <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
                       <h3 style="margin-top: 0;color:#55518a">Hotel Directory</h3>
-                    </center>
-                </div>
-                <div class="bhoechie-tab-content">
-                    <center>
-                      <h1 class="glyphicon glyphicon-cutlery" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Restaurant Diirectory</h3>
-                    </center>
-                </div>
-                <div class="bhoechie-tab-content">
-                    <center>
-                      <h1 class="glyphicon glyphicon-credit-card" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Credit Card</h3>
                     </center>
                 </div>
             </div>
