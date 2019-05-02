@@ -1,7 +1,7 @@
 
 <title>Login</title>
   
-@include('includes.head');
+@include('includes.in-login');
 
 
 <div class="login-form">    

@@ -1,7 +1,7 @@
 
 <title>Datos Viajeros</title>
   
-@include('includes.head');
+@include('includes.in-datosviajeros');
 
 
 <div class="container">

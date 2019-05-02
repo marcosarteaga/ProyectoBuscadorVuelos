@@ -1,6 +1,6 @@
 <title>Registro Usuario</title>
   
-@include('includes.head');
+@include('includes.in-registro');
 
 <div class="container">
     <br><br>

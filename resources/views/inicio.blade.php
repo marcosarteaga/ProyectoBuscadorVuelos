@@ -3,7 +3,7 @@
 
 <title>Buscador</title>
 
-@include('includes.head');
+@include('includes.in-inicio');
 <div class="flight-engine">
   <div class="container">
     <div class="tabing">

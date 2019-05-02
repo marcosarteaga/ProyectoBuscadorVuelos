@@ -36,3 +36,14 @@ Route::get('/resultado', function () {
 Route::get('/datosviajeros', function () {
     return view('datosViajeros');
 });
+
+
+Route::get('/backend', function () {
+    return view('backend');
+});
+
+
+
+//Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
