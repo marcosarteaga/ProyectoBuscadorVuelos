@@ -4,7 +4,6 @@
 
 
     <!--links buscador   -->
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/inicio.css">
