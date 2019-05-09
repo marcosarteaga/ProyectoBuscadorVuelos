@@ -57,10 +57,24 @@ class CreateUsersTable extends Migration
         });
 
 
-        Schema::create('contenidomultimedia', function (Blueprint $table) {
+        Schema::create('oferta1', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('Fotos');
-            $table->string('Videos');
+            $table->string('nombre');
+            $table->string('ruta');
+            $table->timestamps();
+        });
+
+        Schema::create('oferta2', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nombre');
+            $table->string('ruta');
+            $table->timestamps();
+        });
+
+        Schema::create('oferta3', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nombre');
+            $table->string('ruta');
             $table->timestamps();
         });
 

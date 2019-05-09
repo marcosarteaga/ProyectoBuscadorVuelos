@@ -49,4 +49,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-
+//Ruta para guardar imagen de oferta
+Route::post('/backend', 'billetes@storeOferta');

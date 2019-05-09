@@ -68,9 +68,11 @@
                           <tbody>
                             <tr>
                               <form method="POST" action="/backend" enctype="multipart/form-data">
+                                @csrf
                                 <th scope="row">OFERTA 1</th>
                                 <td>
                                   <input  type="file" name="archivoMultimedia">
+                                  <input type="hidden" name="ofertaSeleccionada" value="oferta1">
                                 </td>
                                 <td>
                                   <input class="btn btn-primary" type="submit" value="Subir">
@@ -79,9 +81,11 @@
                             </tr>
                             <tr>
                               <form method="POST" action="/backend" enctype="multipart/form-data">
+                                @csrf
                                 <th scope="row">OFERTA 2</th>
                                 <td>
                                   <input  type="file" name="archivoMultimedia">
+                                  <input type="hidden" name="ofertaSeleccionada" value="oferta2">
                                 </td>
                                 <td>
                                   <input class="btn btn-primary" type="submit" value="Subir">
@@ -91,19 +95,24 @@
 
                             <tr>
                               <form method="POST" action="/backend" enctype="multipart/form-data">
+                                @csrf
                                 <th scope="row">OFERTA 3</th>
                                 <td>
                                   <input  type="file" name="archivoMultimedia">
+                                  <input type="hidden" name="ofertaSeleccionada" value="oferta3">
                                 </td>
                                 <td>
                                   <input class="btn btn-primary" type="submit" value="Subir">
                                 </td>
                               </form>
                             </tr>
-
-
                           </tbody>
                         </table>
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                              {{session('status')}}
+                            </div>
+                        @endif
                     </center>
                 </div>
             </div>
