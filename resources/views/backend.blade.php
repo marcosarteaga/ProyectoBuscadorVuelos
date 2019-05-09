@@ -54,9 +54,64 @@
                 <!-- Ofertas -->
                 <div class="bhoechie-tab-content">
                     <center>
-                      <h1 class="glyphicon glyphicon-home" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Hotel Directory</h3>
+                      <h1 style="margin-top: 0;color:#55518a">OFERTAS</h1>
+                      <!--<h1 class="glyphicon glyphicon-home" style="font-size:12em;color:#55518a"></h1>-->
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th scope="col"></th>
+                              <th scope="col">Imagen</th>
+                              <th scope="col"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <form method="POST" action="/backend" enctype="multipart/form-data">
+                                @csrf
+                                <th scope="row">OFERTA 1</th>
+                                <td>
+                                  <input  type="file" name="archivoMultimedia">
+                                  <input type="hidden" name="ofertaSeleccionada" value="oferta1">
+                                </td>
+                                <td>
+                                  <input class="btn btn-primary" type="submit" value="Subir">
+                                </td>
+                              </form>
+                            </tr>
+                            <tr>
+                              <form method="POST" action="/backend" enctype="multipart/form-data">
+                                @csrf
+                                <th scope="row">OFERTA 2</th>
+                                <td>
+                                  <input  type="file" name="archivoMultimedia">
+                                  <input type="hidden" name="ofertaSeleccionada" value="oferta2">
+                                </td>
+                                <td>
+                                  <input class="btn btn-primary" type="submit" value="Subir">
+                                </td>
+                              </form>
+                            </tr>
+
+                            <tr>
+                              <form method="POST" action="/backend" enctype="multipart/form-data">
+                                @csrf
+                                <th scope="row">OFERTA 3</th>
+                                <td>
+                                  <input  type="file" name="archivoMultimedia">
+                                  <input type="hidden" name="ofertaSeleccionada" value="oferta3">
+                                </td>
+                                <td>
+                                  <input class="btn btn-primary" type="submit" value="Subir">
+                                </td>
+                              </form>
+                            </tr>
+                          </tbody>
+                        </table>
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                              {{session('status')}}
+                            </div>
+                        @endif
                     </center>
                 </div>
             </div>

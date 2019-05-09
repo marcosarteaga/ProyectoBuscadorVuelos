@@ -4,8 +4,9 @@
 <title>Buscador</title>
 
 @include('includes.in-inicio')
-<div class="flight-engine">
-  <div class="container">
+@section('content')
+<div class="">
+  <div class="container col-12">
     <div class="tabing">
        <ul>
           <li><a class="active" href="#1"><i class="fa fa-plane" aria-hidden="true"></i> Flight</a></li>
@@ -79,7 +80,12 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> 
 </div>
-
+<div class="container row col-12">
+  <div class="col-4" id="div1OFERTAS"></div>
+  <div class="col-4" id="div2OFERTAS"></div>
+  <div class="col-4" id="div3OFERTAS"></div>
+</div>
+@endsection
 @include('includes.footer')
