@@ -48,6 +48,7 @@ class CreateUsersTable extends Migration
 
          Schema::create('billetes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('idCliente')->references('id')->on('ventasClientes');
             $table->string('Origen');
             $table->string('Destino');
             $table->date('FechaIda');

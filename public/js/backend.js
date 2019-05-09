@@ -24,28 +24,53 @@ function verClientes(arrayBillete){
         var thPasa = $("<th>").text("Pasaporte");
         var thCiud = $("<th>").text("Ciudad");
         var thPais = $("<th>").text("Pais");
+        var thAcci = $("<th>").text("Acción");
 
         //Añadimos los titulos a la tabla
 
-        tabla.append(thNom,thApell,thCoBi,thTel,thPasa,thCiud,thPais);
+        tabla.append(thNom,thApell,thCoBi,thTel,thPasa,thCiud,thPais,thAcci);
 
 
         //creamos celda de cada campo de cliente
         var tr = $("<tr>");
         var tdNom = $("<td>").append(arrayBillete[i]["Nombre"]);
         var tdApell = $("<td>").append(arrayBillete[i]["Apellidos"]);
-        var tdCoBill = $("<td>");
+        var tdCoBill = $("<td>").append(arrayBillete[i]["CodiBillete"]);
         var tdTelef = $("<td>").append(arrayBillete[i]["Telefono"]);
         var tdPasap = $("<td>").append(arrayBillete[i]["Pasaporte"]);
         var tdCiud = $("<td>").append(arrayBillete[i]["Ciudad"]);
         var tdPais = $("<td>").append(arrayBillete[i]["Pais"]);
+        var tdAcci = $("<td>");
 
-        //Añadimos el enlace al codigo de billete
-        var aCBilli = $("<a>").attr("href","/backendBilletes/"+arrayBillete[i]["CodiBillete"]).append(arrayBillete[i]["CodiBillete"]);
-        tdCoBill.append(aCBilli);
+        //creamos un boton
+        var btnVerBill = $("<button>");
+
+        //creamos una i para el icono del boton
+        var icono = $("<i>").attr("class","far fa-eye");
+
+        //añadimos la clase al boton
+        btnVerBill.attr("class","btn btn-info btn-xs");
+        btnVerBill.attr("type","submit");
+        btnVerBill.attr("id","btnmodal");
+
+        //añadimos atributo modal al boton
+        btnVerBill.attr("data-toggle","modal");
+        btnVerBill.attr("data-target","#myModal");
+
+        //Añadimos el enlace con el codigo de billete al boton
+        btnVerBill.attr("href","{{ action('billetes@showBillete', ['id' => "+arrayBillete[i]["id"]+"]) }}");
+
+        //añadimos el icono al boton
+        btnVerBill.append(icono);
+
+        //añadimos el boton a un td
+        tdAcci.append(btnVerBill);
+
+        
+        
         //Añadimos los td al tr
 
-        tr.append(tdNom,tdApell,tdCoBill,tdTelef,tdPasap,tdCiud,tdPais);
+        tr.append(tdNom,tdApell,tdCoBill,tdTelef,tdPasap,tdCiud,tdPais,tdAcci);
         //Añadimos el tr a la tabla
         tabla.append(tr);
 
