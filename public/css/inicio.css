@@ -1,8 +1,8 @@
 body{
-            background-image: url("../img/fondo-inicio.jpg");
-            background-size: 100%;
-        }
-        .flight-engine {
+    background-image: url("../img/fondo-inicio.jpg");
+    background-size: 100%;
+}
+.flight-engine {
     position: absolute;
     left: 0px;
     right: 0px;
