@@ -38,13 +38,15 @@ Route::get('/datosviajeros', function () {
     return view('datosViajeros');
 });
 
-
-Route::get('/backend', function () {
-    return view('backend');
-});
+#Rutas mostrar clientes y billetes Backend
+Route::get('/backend', 'billetes@showClientes');
+Route::get('/backend/{id}','billetes@showBillete');
 
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+

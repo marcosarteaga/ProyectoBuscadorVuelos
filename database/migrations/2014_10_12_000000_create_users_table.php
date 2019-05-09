@@ -37,10 +37,10 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('Nombre');
             $table->string('Apellidos');
-            $table->string('Codi billete')->references('id')->on('billetes');
+            $table->string('CodiBillete')->references('id')->on('billetes');
             $table->integer('Telefono');
             $table->string('Pasaporte');
-            $table->integer('Codigo postal');
+            $table->integer('CodigoPostal');
             $table->string('Ciudad');
             $table->string('Pais');
             $table->timestamps();
@@ -50,8 +50,9 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('Origen');
             $table->string('Destino');
-            $table->date('Fecha Ida');
-            $table->date('Fecha Vuelta');
+            $table->date('FechaIda');
+            $table->date('FechaVuelta');
+            $table->integer('Precio');
             $table->timestamps();
         });
 
