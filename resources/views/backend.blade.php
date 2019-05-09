@@ -1,5 +1,4 @@
 @include('includes.in-backend');
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <div class="container">
 	<div class="row">
         <div class="col-lg-10 col-md-5 col-sm-8 col-xs-9 bhoechie-tab-container">
@@ -17,15 +16,23 @@
               </div>
             </div>
             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
-                <!-- flight section -->
-                <div class="bhoechie-tab-content active">
-                    <center>
-                      <h1 class="glyphicon glyphicon-plane" style="font-size:14em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Flight Reservation</h3>
+                <!-- Billetes vendidos -->
+                <div  class="bhoechie-tab-content active">
+                    <center id="clientesTable">
+                      <h1 style="font-size:40px;color:#55518a"> <i style="font-size:40px;color:#55518a" class="fas fa-plane"></i>  Clientes</h1>
+
+                    <script type="text/javascript">
+                      var registroClientes = <?php echo json_encode($arrayClientes);?>;
+                      verClientes(registroClientes);
+                    </script>
                     </center>
                 </div>
-                <!-- train section -->
+
+
+
+
+
+                <!-- Comision a los billetes -->
                 <div class="bhoechie-tab-content">
                     <center>
                       <h1 class="glyphicon glyphicon-road" style="font-size:12em;color:#55518a"></h1>
@@ -34,7 +41,18 @@
                     </center>
                 </div>
     
-                <!-- hotel search -->
+
+
+
+
+
+
+
+
+
+
+
+                <!-- Ofertas -->
                 <div class="bhoechie-tab-content">
                     <center>
                       <h1 style="margin-top: 0;color:#55518a">OFERTAS</h1>
