@@ -28,15 +28,14 @@
                     </center>
                 </div>
 
-                <!--Modal Billetes de avion -->
+           
             
   
                 <!-- Comision a los billetes -->
                 <div class="bhoechie-tab-content">
                     <center>
-                      <h1 class="glyphicon glyphicon-road" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Train Reservation</h3>
+                      <h1 style="font-size:40px;color:#55518a"> <i style="font-size:40px;color:#55518a" class="fas fa-file-invoice-dollar"></i> Comisión x Billete</h1>
+                      
                     </center>
                 </div>
     
@@ -120,11 +119,14 @@
 </div>
 
 
-  <!-- Modal para mostrar billetes -->
+  <!-- Modal para mostrar billetes 
+
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
-      <!-- Modal content-->
+       Modal content-->
+       <!--
+
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -132,14 +134,9 @@
         </div>
         <div class="modal-body">
 
-          <script type="text/javascript">
-            var div = $("#myModal");
-            if (div.hasClass("modal")) {
-              console.log("hola");
-            }
-            
-
-            
+          <script defer="" type="text/javascript">
+            var divp = $("#myModal");
+            mostrarBilletes();
           </script>
         </div>
         <div class="modal-footer">
@@ -148,6 +145,7 @@
       </div>
       
     </div>
+-->
   </div>
 
 

@@ -81,3 +81,10 @@ function verClientes(arrayBillete){
 
 }
 }
+
+
+function mostrarBilletes(){
+    if ($("").css("display", "")) {
+              console.log("hola");
+            }
+}
