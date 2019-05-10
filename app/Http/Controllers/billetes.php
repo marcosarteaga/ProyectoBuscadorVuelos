@@ -35,7 +35,7 @@ class billetes extends Controller
     			$file->move(public_path().'/oferta1/', $name);
     			$oferta1 = new PrimeraOferta;
 	    		$oferta1->nombre = $name;
-	    		$oferta1->ruta = $name;
+	    		//$oferta1->ruta = $name;
 	    		$oferta1->save();	
     		}
     		elseif ($NumeroOferta == 'oferta2') {
@@ -44,7 +44,7 @@ class billetes extends Controller
     			$file->move(public_path().'/oferta2/', $name);
     			$oferta1 = new SegundaOferta;
 	    		$oferta1->nombre = $name;
-	    		$oferta1->ruta = $name;
+	    		//$oferta1->ruta = $name;
 	    		$oferta1->save();
     		}
     		elseif ($NumeroOferta == 'oferta3') {
@@ -53,7 +53,7 @@ class billetes extends Controller
     			$file->move(public_path().'/oferta3/', $name);
     			$oferta1 = new TerceraOferta;
 	    		$oferta1->nombre = $name;
-	    		$oferta1->ruta = $name;
+	    		//$oferta1->ruta = $name;
 	    		$oferta1->save();
     		}
 
