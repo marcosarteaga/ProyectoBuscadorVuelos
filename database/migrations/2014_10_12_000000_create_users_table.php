@@ -19,7 +19,6 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
         });
 
@@ -27,33 +26,64 @@ class CreateUsersTable extends Migration
         Schema::create('admin', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Nombre');
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('Password');
             $table->timestamps();
         });
 
 
-        Schema::create('ventasClientes', function (Blueprint $table) {
+        Schema::create('pasajeros', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Nombre');
             $table->string('Apellidos');
-            $table->string('CodiBillete')->references('id')->on('billetes');
-            $table->integer('Telefono');
+            $table->string('Email');
             $table->string('Pasaporte');
-            $table->integer('CodigoPostal');
-            $table->string('Ciudad');
-            $table->string('Pais');
             $table->timestamps();
         });
 
          Schema::create('billetes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('idCliente')->references('id')->on('ventasClientes');
-            $table->string('Origen');
-            $table->string('Destino');
+            $table->string('idUser')->references('id')->on('users');
+            $table->string('idPasajeros')->references('id')->on('pasajeros');
+            $table->integer('CiudadOrigen')->references('id')->on('ciudades');
+            $table->integer('CiudadDestino')->references('id')->on('ciudades');
             $table->date('FechaIda');
             $table->date('FechaVuelta');
-            $table->integer('Precio');
+            $table->time('HoraIda');
+            $table->time('HoraVuelta');
+            $table->string('EstadoBillete');
+            $table->string('EstadoPago');
+            $table->float('ComisionPrecio');
+            $table->float('Precio');
+            $table->timestamps();
+        });
+
+
+         Schema::create('paises', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('Nombre');
+            $table->timestamps();
+        });
+
+
+         Schema::create('consultabilletes', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->date('FechaIda');
+            $table->date('FechaVuelta');
+            $table->time('HoraIda');
+            $table->time('HoraVuelta');
+            $table->float('Precio');
+            $table->string('CiudadOrigen');
+            $table->string('CiudadDestino');
+
+
+            $table->timestamps();
+        });
+
+          Schema::create('ciudades', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('Nombre');
+            $table->string('idPais')->references('id')->on('paises');
+
             $table->timestamps();
         });
 
@@ -87,9 +117,14 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contenidomultimedia');
+        Schema::dropIfExists('oferta3');
+        Schema::dropIfExists('oferta2');
+        Schema::dropIfExists('oferta1');
+        Schema::dropIfExists('ciudades');
+        Schema::dropIfExists('consultabilletes');
+        Schema::dropIfExists('paises');
         Schema::dropIfExists('billetes');
-        Schema::dropIfExists('ventasClientes');
+        Schema::dropIfExists('pasajeros');
         Schema::dropIfExists('admin');
         Schema::dropIfExists('users');
     }

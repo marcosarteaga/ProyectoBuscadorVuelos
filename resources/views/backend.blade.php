@@ -28,15 +28,14 @@
                     </center>
                 </div>
 
-                <!--Modal Billetes de avion -->
+           
             
   
                 <!-- Comision a los billetes -->
                 <div class="bhoechie-tab-content">
                     <center>
-                      <h1 class="glyphicon glyphicon-road" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Train Reservation</h3>
+                      <h1 style="font-size:40px;color:#55518a"> <i style="font-size:40px;color:#55518a" class="fas fa-file-invoice-dollar"></i> Comisión x Billete</h1>
+                      
                     </center>
                 </div>
     
@@ -118,6 +117,7 @@
         </div>
   </div>
 </div>
+
 @include('includes.footer')
 
 <script>
@@ -207,3 +207,4 @@ $('#upload_form3').on('submit', function(event){
 
 });
 </script>
+=======

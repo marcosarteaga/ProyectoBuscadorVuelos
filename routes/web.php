@@ -15,6 +15,12 @@
 
 
 
+Route::get('/billetes', function () {
+    return view('billetesPasajero');
+});
+
+
+
 Route::get('/login2', function () {
     return view('login');
 });
