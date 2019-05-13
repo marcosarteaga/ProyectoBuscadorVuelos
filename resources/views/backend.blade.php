@@ -56,6 +56,7 @@
                     <center>
                       <h1 style="margin-top: 0;color:#55518a">OFERTAS</h1>
                       <!--<h1 class="glyphicon glyphicon-home" style="font-size:12em;color:#55518a"></h1>-->
+                      <div class="alert" id="message" style="display: none"></div>
                         <table class="table">
                           <thead>
                             <tr>
@@ -66,98 +67,143 @@
                           </thead>
                           <tbody>
                             <tr>
-                              <form id="formOferta1" method="get" enctype="multipart/form-data">
-                                @csrf
+                              <form method="post" id="upload_form1" enctype="multipart/form-data">
+                                {{ csrf_field() }}
                                 <th scope="row">OFERTA 1</th>
                                 <td>
-                                  <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
-                                  <input id="imagenOferta"   type="file" name="archivoMultimedia">
+                                  <input id="archivoMultimedia1"   type="file" name="archivoMultimedia1">
                                   <input type="hidden" name="ofertaSeleccionada" value="oferta1">
                                 </td>
                                 <td>
-                                  <input id="insertarImagen"  class="btn btn-primary"  value="Subir">
+                                  <input type="submit" id="insertarImagen1" name="insertarImagen1"  class="btn btn-primary"  value="Subir">
+
                                 </td>
                               </form>
-                              <p id="msj-success"></p>
-                              <p id="msj"></p>
-                              <p id="msj-error"></p>
                             </tr>
                             <tr>
-                              <form method="POST" action="/backend" enctype="multipart/form-data">
-                                @csrf
+                              <form method="post" id="upload_form2" enctype="multipart/form-data">
+                                {{ csrf_field() }}
                                 <th scope="row">OFERTA 2</th>
                                 <td>
-                                  <input id="imagenOferta"   type="file" name="archivoMultimedia">
+                                  <input id="archivoMultimedia2"   type="file" name="archivoMultimedia2">
                                   <input type="hidden" name="ofertaSeleccionada" value="oferta2">
                                 </td>
                                 <td>
-                                  <input id="insertarImagen" class="btn btn-primary" type="submit" value="Subir">
+                                  <input type="submit" id="insertarImagen2" name="insertarImagen2"  class="btn btn-primary"  value="Subir">
+
                                 </td>
                               </form>
                             </tr>
 
                             <tr>
-                              <form method="POST" action="/backend" enctype="multipart/form-data">
-                                @csrf
+                              <form method="post" id="upload_form3" enctype="multipart/form-data">
+                                {{ csrf_field() }}
                                 <th scope="row">OFERTA 3</th>
                                 <td>
-                                  <input id="imagenOferta"  type="file" name="archivoMultimedia">
+                                  <input id="archivoMultimedia3"   type="file" name="archivoMultimedia3">
                                   <input type="hidden" name="ofertaSeleccionada" value="oferta3">
                                 </td>
                                 <td>
-                                  <input id="insertarImagen" class="btn btn-primary" type="submit" value="Subir">
+                                  <input type="submit" id="insertarImagen3" name="insertarImagen3"  class="btn btn-primary"  value="Subir">
+
                                 </td>
                               </form>
                             </tr>
                           </tbody>
                         </table>
-                        @if (session('status'))
-                            <div class="alert alert-success">
-                              {{session('status')}}
-                            </div>
-                        @endif
+                        <span id="uploaded_image"></span>
                     </center>
                 </div>
             </div>
         </div>
   </div>
 </div>
-<<<<<<< HEAD
 @include('includes.footer')
-=======
+
+<script>
+$(document).ready(function(){
+
+$('#upload_form1').on('submit', function(event){
+  event.preventDefault();
+  console.log("entra paso1-1");
+  $.ajax({
+   url:"{{ route('billetes.storeOfertaImage') }}",
+   method:"POST",
+   data:new FormData(this),
+   dataType:'JSON',
+   contentType: false,
+   cache: false,
+   processData: false,
+   success:function(data)
+   {
+    console.log("entra paso2-1");
+    $('#archivoMultimedia1').val('');
+    $('#message').removeClass('alert-success');
+    $('#message').removeClass('alert-danger');
+    $('#message').css('display', 'block');
+    $('#message').html(data.message);
+    $('#message').addClass(data.class_name);
+   }
+  })
+ });
+
+});
+
+$(document).ready(function(){
+
+$('#upload_form2').on('submit', function(event){
+  event.preventDefault();
+  console.log("entra paso1-2");
+  $.ajax({
+   url:"{{ route('billetes.storeOfertaImage') }}",
+   method:"POST",
+   data:new FormData(this),
+   dataType:'JSON',
+   contentType: false,
+   cache: false,
+   processData: false,
+   success:function(data)
+   {
+    console.log("entra paso2-2");
+    $('#archivoMultimedia2').val('');
+    $('#message').removeClass('alert-success');
+    $('#message').removeClass('alert-danger');
+    $('#message').css('display', 'block');
+    $('#message').html(data.message);
+    $('#message').addClass(data.class_name);
+   }
+  })
+ });
+
+});
 
 
-  <!-- Modal para mostrar billetes -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Billete</h4>
-        </div>
-        <div class="modal-body">
 
-          <script type="text/javascript">
-            var div = $("#myModal");
-            if (div.hasClass("modal")) {
-              console.log("hola");
-            }
-            
+$(document).ready(function(){
 
-            
-          </script>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
+$('#upload_form3').on('submit', function(event){
+  event.preventDefault();
+  console.log("entra paso1-3");
+  $.ajax({
+   url:"{{ route('billetes.storeOfertaImage') }}",
+   method:"POST",
+   data:new FormData(this),
+   dataType:'JSON',
+   contentType: false,
+   cache: false,
+   processData: false,
+   success:function(data)
+   {
+    console.log("entra paso2-3");
+    $('#archivoMultimedia3').val('');
+    $('#message').removeClass('alert-success');
+    $('#message').removeClass('alert-danger');
+    $('#message').css('display', 'block');
+    $('#message').html(data.message);
+    $('#message').addClass(data.class_name);
+   }
+  })
+ });
 
-
-
-@include('includes.footer');
->>>>>>> c9ec65d429a10ae6614f0b2f92de4852542f31cb
+});
+</script>

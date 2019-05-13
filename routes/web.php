@@ -12,9 +12,7 @@
 */
 
 
-Route::get('/', function () {
-    return view('home');
-});
+
 
 
 Route::get('/login2', function () {
@@ -48,6 +46,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Ruta buscador con ofertas
+Route::get('/','BuscadorController@show');
+
 
 //Ruta para guardar imagen de oferta
-Route::post('/backend', 'billetes@storeOferta')->name('insertOferta.storeOferta');
+Route::post('/backend', 'billetes@storeOfertaImage')->name('billetes.storeOfertaImage');

@@ -83,9 +83,9 @@
   </div> 
 </div>
 <div class="container row col-12">
-  <div class="col-4" id="div1OFERTAS"></div>
-  <div class="col-4" id="div2OFERTAS"></div>
-  <div class="col-4" id="div3OFERTAS"></div>
+  <div class="col-4 mt-4" id="div1OFERTAS"> <img class="card-img-top" src="/../oferta1/<?php echo($arrayOferta1->nombre) ?>"></div>
+  <div class="col-4 mt-4" id="div2OFERTAS"><img class="card-img-top" src="/../oferta2/<?php echo($arrayOferta2->nombre) ?>"></div>
+  <div class="col-4 mt-4" id="div3OFERTAS"><img class="card-img-top" src="/../oferta3/<?php echo($arrayOferta3->nombre) ?>"></div>
 </div>
 @endsection
 @include('includes.footer')

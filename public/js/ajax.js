@@ -54,7 +54,6 @@ $("#insertarImagen").click(function(event) {
         }
     });
 });
-*/
 
 
 $(document).ready(function(){
@@ -85,7 +84,6 @@ $(document).ready(function(){
 
 
 
-/*
 $(document).ready(function(){
 	$("#insertarImagen").click(function(){
 	var imagen = $("input[name='archivoMultimedia']").val();
@@ -143,6 +141,34 @@ $(document).ready(function(){
 	$("#imagenOferta").on("change", function() {
         $("#formOferta1").submit();
     });
+});
+
+
+
+  $(document).ready(function(){
+
+ $('#upload_form').on('submit', function(event){
+  event.preventDefault();
+  console.log("entra paso1");
+  $.ajax({
+   url:"{{ route('billetes.storeOfertaImage') }}",
+   method:"POST",
+   data:new FormData(this),
+   dataType:'JSON',
+   contentType: false,
+   cache: false,
+   processData: false,
+   success:function(data)
+   {
+    console.log("entra paso2");
+    $('#message').css('display', 'block');
+    $('#message').html(data.message);
+    $('#message').addClass(data.class_name);
+    $('#uploaded_image').html(data.uploaded_image);
+   }
+  })
+ });
+
 });
 
 */
