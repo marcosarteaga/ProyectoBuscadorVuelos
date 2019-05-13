@@ -19,27 +19,21 @@ function verClientes(arrayBillete){
         //Creamos th para los titulos de cada atributo de cliente
         var thNom = $("<th>").text("Nombre");
         var thApell = $("<th>").text("Apellidos");
-        var thCoBi = $("<th>").text("C.Billete");
-        var thTel = $("<th>").text("Telefono");
+        var thEmail = $("<th>").text("Email");
         var thPasa = $("<th>").text("Pasaporte");
-        var thCiud = $("<th>").text("Ciudad");
-        var thPais = $("<th>").text("Pais");
-        var thAcci = $("<th>").text("Acción");
+        var thAcci = $("<th>").text("Billete");
 
         //Añadimos los titulos a la tabla
 
-        tabla.append(thNom,thApell,thCoBi,thTel,thPasa,thCiud,thPais,thAcci);
+        tabla.append(thNom,thApell,thEmail,thPasa,thAcci);
 
 
         //creamos celda de cada campo de cliente
         var tr = $("<tr>");
         var tdNom = $("<td>").append(arrayBillete[i]["Nombre"]);
         var tdApell = $("<td>").append(arrayBillete[i]["Apellidos"]);
-        var tdCoBill = $("<td>").append(arrayBillete[i]["CodiBillete"]);
-        var tdTelef = $("<td>").append(arrayBillete[i]["Telefono"]);
+        var tdEmail = $("<td>").append(arrayBillete[i]["Email"]);
         var tdPasap = $("<td>").append(arrayBillete[i]["Pasaporte"]);
-        var tdCiud = $("<td>").append(arrayBillete[i]["Ciudad"]);
-        var tdPais = $("<td>").append(arrayBillete[i]["Pais"]);
         var tdAcci = $("<td>");
 
         //creamos un boton
@@ -70,7 +64,7 @@ function verClientes(arrayBillete){
         
         //Añadimos los td al tr
 
-        tr.append(tdNom,tdApell,tdCoBill,tdTelef,tdPasap,tdCiud,tdPais,tdAcci);
+        tr.append(tdNom,tdApell,tdEmail,tdPasap,tdAcci);
         //Añadimos el tr a la tabla
         tabla.append(tr);
 

@@ -121,41 +121,8 @@
         </div>
   </div>
 </div>
-<<<<<<< HEAD
-@include('includes.footer')
-=======
-
-
-  <!-- Modal para mostrar billetes 
-
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-       Modal content-->
-       <!--
-
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Billete</h4>
-        </div>
-        <div class="modal-body">
-
-          <script defer="" type="text/javascript">
-            var divp = $("#myModal");
-            mostrarBilletes();
-          </script>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
--->
   </div>
 
 
 
 @include('includes.footer');
->>>>>>> c9ec65d429a10ae6614f0b2f92de4852542f31cb
