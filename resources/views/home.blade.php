@@ -8,77 +8,85 @@
 <div class="">
   <div class="container col-12">
     <div class="tabing">
+    <form method="post" action="/resultado">
        <ul>
           <li><a class="active" href="#1"><i class="fa fa-plane" aria-hidden="true"></i> Flight</a></li>
        </ul>
-       <ul>
-        <li><input type="checkbox" name="ida"><label>Ida y Vuelta</label></li>
-        <li> <input type="checkbox" name="ida"><label>Solo Ida</label> </li>
+       <ul class="mt-4">
+        <li><input type="checkbox" name="IdaVuelta"><label>Ida y Vuelta</label></li>
+        <li> <input type="checkbox" name="soloIda"><label>Solo Ida</label> </li>
        </ul>
        <div class="tab-content">
         <div id="1" class="tab1 active">
           <div class="flight-tab row">
               <div class="persent-one">
-                 <i class="fa fa-map-marker" aria-hidden="true"></i>
-                 <input type="text" name="dep" class="textboxstyle" id="dep" placeholder="Ciudad Origen">
+                <!--<input type="text" name="ciudadOrigen" class="textboxstyle" id="dep" placeholder="Ciudad Origen">-->
+                  <label class="fa fa-map-marker ml-5"> Ciudad Origen</label>
+                  <?php
+                    echo "<select name='ciudadOrigen' class='textboxstyle' id='ciudadOrigenId' placeholder='Ciudad Origen'>";
+                    if (isset($ciudades)) {
+
+                      foreach ($ciudades as  $value) {
+                        echo "<option value='".$value->id."'>".$value->Nombre."</option>";
+                      }
+                    
+                    }
+                    echo "</select>";
+                    
+                  ?>
               </div>
               <div class="persent-one">
-                 <i class="fa fa-map-marker" aria-hidden="true"></i>
-                 <input type="text" name="dep" class="textboxstyle" id="arival" placeholder="Ciudad Destino">
+                 <label class="fa fa-map-marker ml-5"> Ciudad Destino</label>
+                 <!---<input type="text" name="ciudadDestino" class="textboxstyle" id="arival" placeholder="Ciudad Destino">-->
+                 <?php
+                    echo "<select name='ciudadDestino' class='textboxstyle' id='ciudadDestinoId' placeholder='Ciudad Destino'>"; 
+                    if (isset($ciudades)) {
+
+                      foreach ($ciudades as  $value) {
+                        echo "<option value='".$value->id."'>".$value->Nombre."</option>";
+                      }
+                    
+                    }
+                    echo "</select>";
+                    
+                 ?>
               </div>
               <div class="persent-one less-per">
-                 <i class="fa fa-calendar" aria-hidden="true"></i>
-                 <input type="text" name="dep" class="textboxstyle" id="from-date1" placeholder="Fecha Ida">
+                 <label class="fa fa-calendar ml-5"> Fecha ida</label>
+                 <input type="date" name="fechaIda" class="textboxstyle" id="from-date1" placeholder="Fecha Ida">
               </div>
               <div class="persent-one less-per">
-                 <i class="fa fa-calendar" aria-hidden="true"></i>
-                 <input type="text" name="dep" class="textboxstyle" id="to-date" placeholder="Fecha Vuelta">
+                 <label class="fa fa-calendar ml-5"> Fecha Vuelta</label>
+                 <input type="date" name="fechaVuelta" class="textboxstyle" id="to-date" placeholder="Fecha Vuelta">
               </div>
               <div class="persent-one">
-                 <i class="fa fa-user" aria-hidden="true"></i>
+                 <label class="fa fa-user ml-5"> Adultos</label>
                   <select class="textboxstyle" id="passenger">
-                   <option>1 Pasajero</option>
-                   <option>2 Pasajero</option>
-                   <option>3 Pasajero</option>
-                   <option>4 Pasajero</option>
-                   <option>5 Pasajero</option>
+                   <option value="1">1 Pasajero</option>
+                   <option value="2">2 Pasajero</option>
+                   <option value="3">3 Pasajero</option>
+                   <option value="4">4 Pasajero</option>
+                   <option value="5">5 Pasajero</option>
                  </select>
               </div>
-              <div class="persent-one less-btn">
-                <a href="{{ asset('resultado') }}">
-                 <input type="button" name="submit" value="Search" class="btn btn-info cst-btn" id="srch">
-                 </a>
+              <div class="persent-one mt-4" >
+                 <label class="fa fa-user ml-5"> Niños</label> 
+                  <select class="textboxstyle " id="passenger">
+                   <option value="1">1 Niño</option>
+                   <option value="2">2 Niños</option>
+                   <option value="3">3 Niños</option>
+                   <option value="4">4 Niños</option>
+                   <option value="5">5 Niños</option>
+                 </select>
+              </div>
+              <div class="persent-one less-btn mt-5">
+                <!--<a href="{{ asset('resultado') }}"></a>-->
+                 <input type="submit" name="submit" value="Buscar" class="btn btn-primary" id="srch">
               </div>
           </div>
         </div>
-        <div id="2" class="tab1">
-         <div class="flight-tab row">
-            <div class="persent-one">
-               <i class="fa fa-map-marker" aria-hidden="true"></i>
-               <input type="text" name="dep" class="textboxstyle" id="dep" placeholder="From City or airport">
-            </div>
-            <div class="persent-one">
-               <i class="fa fa-map-marker" aria-hidden="true"></i>
-               <input type="text" name="dep" class="textboxstyle" id="arival" placeholder="To City or airport">
-            </div>
-            <div class="persent-one less-per">
-               <i class="fa fa-calendar" aria-hidden="true"></i>
-               <input type="text" name="dep" class="textboxstyle" id="from-date1" placeholder="Depart">
-            </div>
-            <div class="persent-one less-per">
-               <i class="fa fa-calendar" aria-hidden="true"></i>
-               <input type="text" name="dep" class="textboxstyle" id="to-date" placeholder="Returrn">
-            </div>
-            <div class="persent-one">
-               <i class="fa fa-user" aria-hidden="true"></i>
-               <div class="textboxstyle" id="passenger">01 Passenger</div>
-            </div>
-            <div class="persent-one less-btn">
-               <input type="Submit" name="submit" value="Search" class="btn btn-info cst-btn" id="srch">
-            </div>
-         </div>
-        </div>
       </div>
+    </form>
     </div>
   </div> 
 </div>
