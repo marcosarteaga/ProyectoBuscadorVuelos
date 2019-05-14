@@ -207,4 +207,3 @@ $('#upload_form3').on('submit', function(event){
 
 });
 </script>
-=======
