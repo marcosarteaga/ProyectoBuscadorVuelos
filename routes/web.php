@@ -15,9 +15,8 @@
 
 
 
-Route::get('/billetes', function () {
-    return view('billetesPasajero');
-});
+Route::get('/billete/{id}', 'billetes@showBillete');
+
 
 
 

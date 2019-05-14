@@ -25,12 +25,16 @@ class billetes extends Controller
 
     public function showBillete($id)
     {	
-    	$CiudadOrigen = DB::table('billetes')->select('CiudadOrigen')->where('idPasajero', $id)->get();
-    	$CiudadDestino = DB::table('billetes')->select('CiudadDestino')->where('idPasajero', $id)->get();
-    	$ciudades = DB::table('billetes')->select('nombre')->where('id',$CiudadOrigen->CiudadOrigen)->where('id',$CiudadDestino->CiudadDestino)->get();
-    	$arrayBilletes = DB::table('billetes')->select('HoraIDa','HoraVuelta','EstadoBillete','EstadoPago','ComisionPrecio','FechaIda','FechaVuelta','Precio')->where('idPasajero', $id)->get();
-    	return view('/billetes',array('arrayBilletes'=> $arrayBilletes));
+    	$CiudadOrigen = DB::table('billetes')->select('CiudadOrigen')->where('idPasajeros', $id)->get();
+    	$CiudadDestino = DB::table('billetes')->select('CiudadDestino')->where('idPasajeros', $id)->get();
+    	
+    	$origen = DB::table('ciudades')->select('Nombre')->where('id',$CiudadOrigen[0]->CiudadOrigen)->get();
+    	$destino = DB::table('ciudades')->select('Nombre')->where('id',$CiudadDestino[0]->CiudadDestino)->get();
+    	$arrayBilletes = DB::table('billetes')->select('HoraIDa','HoraVuelta','EstadoBillete','EstadoPago','ComisionPrecio','FechaIda','FechaVuelta','Precio')->where('idPasajeros', $id)->get();
+    	return view('billetesPasajero',['arrayBilletes'=> $arrayBilletes,'origen'=> $origen,'destino'=> $destino]);
     }
+
+
 
     function storeOfertaImage(Request $request){
 
