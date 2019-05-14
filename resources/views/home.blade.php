@@ -83,9 +83,30 @@
   </div> 
 </div>
 <div class="container row col-12">
-  <div class="col-4 mt-4" id="div1OFERTAS"> <img class="card-img-top" src="/../oferta1/<?php echo($arrayOferta1->nombre) ?>"></div>
-  <div class="col-4 mt-4" id="div2OFERTAS"><img class="card-img-top" src="/../oferta2/<?php echo($arrayOferta2->nombre) ?>"></div>
-  <div class="col-4 mt-4" id="div3OFERTAS"><img class="card-img-top" src="/../oferta3/<?php echo($arrayOferta3->nombre) ?>"></div>
+  <div class="col-4 mt-4" id="div1OFERTAS">
+    <?php 
+      if (isset($arrayOferta1)) {
+        echo"<img class='card-img-top' src='/../oferta1/$arrayOferta1->nombre'>";
+      }
+
+    ?>  
+ </div>
+  <div class="col-4 mt-4" id="div2OFERTAS">
+    <?php 
+      if (isset($arrayOferta2)) {
+        echo"<img class='card-img-top' src='/../oferta2/$arrayOferta2->nombre'>";
+
+      }
+    ?>
+  </div>
+  <div class="col-4 mt-4" id="div3OFERTAS">
+    <?php 
+    if (isset($arrayOferta3)) {
+      echo"<img class='card-img-top' src='/../oferta3/$arrayOferta3->nombre'>";
+    }
+
+    ?>
+  </div>
 </div>
 @endsection
 @include('includes.footer')
