@@ -37,22 +37,18 @@ function verClientes(arrayBillete){
         var tdAcci = $("<td>");
 
         //creamos un boton
-        var btnVerBill = $("<button>");
+        var btnVerBill = $("<a>");
 
         //creamos una i para el icono del boton
         var icono = $("<i>").attr("class","far fa-eye");
 
         //añadimos la clase al boton
         btnVerBill.attr("class","btn btn-info btn-xs");
-        btnVerBill.attr("type","submit");
-        btnVerBill.attr("id","btnmodal");
-
-        //añadimos atributo modal al boton
-        btnVerBill.attr("data-toggle","modal");
-        btnVerBill.attr("data-target","#myModal");
+        
+        
 
         //Añadimos el enlace con el codigo de billete al boton
-        btnVerBill.attr("href","{{ action('billetes@showBillete', ['id' => "+arrayBillete[i]["id"]+"]) }}");
+        btnVerBill.attr({"href":"/billete/"+arrayBillete[i]['id']});
 
         //añadimos el icono al boton
         btnVerBill.append(icono);
@@ -74,11 +70,4 @@ function verClientes(arrayBillete){
        
 
 }
-}
-
-
-function mostrarBilletes(){
-    if ($("").css("display", "")) {
-              console.log("hola");
-            }
 }
