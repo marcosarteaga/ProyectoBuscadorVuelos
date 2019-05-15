@@ -27,8 +27,10 @@ class BuscadorController extends Controller
         $fechaida = $request->input('fechaIda');
         $fechavuelta = $request->input('fechaVuelta');
         $resultadoBusqueda = ResultadoBilletes::select('id','FechaIda','FechaVuelta','HoraIda','HoraVuelta','Precio','CiudadOrigen','CiudadDestino')->where('FechaIda',$fechaida)->where('FechaVuelta',$fechavuelta)->where('CiudadOrigen',$ciudadorigen)->where('CiudadDestino',$ciudaddestino)->get();
-        dd($resultadoBusqueda);
-        return view('/resultado');
+        $ciudadOrigenResultado = DB::table('ciudades')->select('Nombre')->where('id',$resultadoBusqueda[0]->CiudadOrigen)->get();
+        $ciudadDestinoResultado = DB::table('ciudades')->select('Nombre')->where('id',$resultadoBusqueda[0]->CiudadDestino)->get();
+
+        return view('/resultado',['resultadoBusquedaFinal'=>$resultadoBusqueda,'ciudaOrigenBusqueda'=>$ciudadOrigenResultado,'ciudadDestinoBusqueda'=>$ciudadDestinoResultado]);
     }
 
     /**

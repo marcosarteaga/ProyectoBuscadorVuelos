@@ -34,7 +34,7 @@ Route::get('/recuperar', function () {
     return view('recuperar');
 });
 
-Route::get('/resultado','BuscadorController@index');
+
 
 Route::get('/datosviajeros', function () {
     return view('datosViajeros');
@@ -59,4 +59,5 @@ Route::post('/backend', 'billetes@storeOfertaImage')->name('billetes.storeOferta
 
 
 //Ruta resultados de busqueda
+Route::get('/resultado','BuscadorController@index');
 Route::post('/resultado','BuscadorController@resultadoBusqueda');

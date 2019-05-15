@@ -9,6 +9,7 @@
   <div class="container col-12">
     <div class="tabing">
     <form method="post" action="/resultado">
+      {{ csrf_field() }}
        <ul>
           <li><a class="active" href="#1"><i class="fa fa-plane" aria-hidden="true"></i> Flight</a></li>
        </ul>
