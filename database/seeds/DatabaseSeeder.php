@@ -101,9 +101,11 @@ class DatabaseSeeder extends Seeder
 	    ]);
 
 
-	    DB::table('consultabilletes')->insert([
-            ['id' => 1, 'FechaIda' => '2019-05-14','FechaVuelta' => '2019-05-13','HoraIda' => '15:19:12','HoraVuelta' => '20:19:12','Precio' => 150,'CiudadOrigen' => 20 ,'CiudadDestino' => 5,'created_at' => new DateTime, 'updated_at' => new DateTime]
+	    DB::table('billetesVentas')->insert([
+            ['id' => 1, 'Fecha' => '2019-05-16','HoraIda' => '15:19:12','HoraLlegada' => '20:19:12','Precio' => 150,'CiudadOrigen' => 20 ,'CiudadDestino' => 5,'created_at' => new DateTime, 'updated_at' => new DateTime]
         ]);
+
+
 
 
     }
