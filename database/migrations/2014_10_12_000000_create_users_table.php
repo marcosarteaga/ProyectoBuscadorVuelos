@@ -65,12 +65,11 @@ class CreateUsersTable extends Migration
         });
 
 
-         Schema::create('consultabilletes', function (Blueprint $table) {
+         Schema::create('billetesVentas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('FechaIda');
-            $table->date('FechaVuelta');
+            $table->date('Fecha');
             $table->time('HoraIda');
-            $table->time('HoraVuelta');
+            $table->time('HoraLlegada');
             $table->float('Precio');
             $table->string('CiudadOrigen');
             $table->string('CiudadDestino');
@@ -78,6 +77,7 @@ class CreateUsersTable extends Migration
 
             $table->timestamps();
         });
+
 
           Schema::create('ciudades', function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -105,6 +105,13 @@ class CreateUsersTable extends Migration
             $table->string('nombre');
             $table->timestamps();
         });
+
+        Schema::create('comision', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('comision');
+            $table->timestamps();
+        });
+
 
 
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use App\ResultadoBilletes;
+use App\BilletesVentas;
 
 class BuscadorController extends Controller
 {
@@ -26,10 +26,9 @@ class BuscadorController extends Controller
         $ciudaddestino = $request->input('ciudadDestino');
         $fechaida = $request->input('fechaIda');
         $fechavuelta = $request->input('fechaVuelta');
-        $resultadoBusqueda = ResultadoBilletes::select('id','FechaIda','FechaVuelta','HoraIda','HoraVuelta','Precio','CiudadOrigen','CiudadDestino')->where('FechaIda',$fechaida)->where('FechaVuelta',$fechavuelta)->where('CiudadOrigen',$ciudadorigen)->where('CiudadDestino',$ciudaddestino)->get();
+        $resultadoBusqueda = BilletesVentas::select('id','Fecha','HoraIda','HoraLlegada','Precio','CiudadOrigen','CiudadDestino')->where('Fecha',$fechaida)->where('CiudadOrigen',$ciudadorigen)->where('CiudadDestino',$ciudaddestino)->get();
         $ciudadOrigenResultado = DB::table('ciudades')->select('Nombre')->where('id',$resultadoBusqueda[0]->CiudadOrigen)->get();
         $ciudadDestinoResultado = DB::table('ciudades')->select('Nombre')->where('id',$resultadoBusqueda[0]->CiudadDestino)->get();
-
         return view('/resultado',['resultadoBusquedaFinal'=>$resultadoBusqueda,'ciudaOrigenBusqueda'=>$ciudadOrigenResultado,'ciudadDestinoBusqueda'=>$ciudadDestinoResultado]);
     }
 
