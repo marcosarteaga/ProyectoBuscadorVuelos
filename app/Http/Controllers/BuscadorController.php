@@ -22,14 +22,36 @@ class BuscadorController extends Controller
     public function resultadoBusqueda(Request $request)
     {
 
+        $TipodDeViaje = $request->input('tipoViaje');
+
         $ciudadorigen = $request->input('ciudadOrigen');
         $ciudaddestino = $request->input('ciudadDestino');
         $fechaida = $request->input('fechaIda');
-        $fechavuelta = $request->input('fechaVuelta');
-        $resultadoBusqueda = BilletesVentas::select('id','Fecha','HoraIda','HoraLlegada','Precio','CiudadOrigen','CiudadDestino')->where('Fecha',$fechaida)->where('CiudadOrigen',$ciudadorigen)->where('CiudadDestino',$ciudaddestino)->get();
-        $ciudadOrigenResultado = DB::table('ciudades')->select('Nombre')->where('id',$resultadoBusqueda[0]->CiudadOrigen)->get();
-        $ciudadDestinoResultado = DB::table('ciudades')->select('Nombre')->where('id',$resultadoBusqueda[0]->CiudadDestino)->get();
-        return view('/resultado',['resultadoBusquedaFinal'=>$resultadoBusqueda,'ciudaOrigenBusqueda'=>$ciudadOrigenResultado,'ciudadDestinoBusqueda'=>$ciudadDestinoResultado]);
+       
+
+        if ($TipodDeViaje[0]=='Ida') {
+            
+            $resultadoBusqueda = BilletesVentas::select('id','Fecha','HoraIda','HoraLlegada','Precio','CiudadOrigen','CiudadDestino')->where('Fecha',$fechaida)->where('CiudadOrigen',$ciudadorigen)->where('CiudadDestino',$ciudaddestino)->get();
+            $ciudadOrigenResultado = DB::table('ciudades')->select('Nombre')->where('id',$resultadoBusqueda[0]->CiudadOrigen)->get();
+            $ciudadDestinoResultado = DB::table('ciudades')->select('Nombre')->where('id',$resultadoBusqueda[0]->CiudadDestino)->get();
+            return view('/resultado',['resultadoBusquedaFinal'=>$resultadoBusqueda,'ciudaOrigenBusqueda'=>$ciudadOrigenResultado,'ciudadDestinoBusqueda'=>$ciudadDestinoResultado]);
+        }
+        else{
+                 
+            $fechavuelta = $request->input('fechaVuelta');
+
+            $resultadoBusquedaIda = BilletesVentas::select('id','Fecha','HoraIda','HoraLlegada','Precio','CiudadOrigen','CiudadDestino')->where('Fecha',$fechaida)->where('CiudadOrigen',$ciudadorigen)->where('CiudadDestino',$ciudaddestino)->get();
+
+            $resultadoBusquedaVuelta = BilletesVentas::select('id','Fecha','HoraIda','HoraLlegada','Precio','CiudadOrigen','CiudadDestino')->where('Fecha',$fechavuelta)->where('CiudadOrigen',$ciudaddestino)->where('CiudadDestino',$ciudadorigen)->get();
+
+            $ciudadOrigenResultado = DB::table('ciudades')->select('Nombre')->where('id',$resultadoBusquedaIda[0]->CiudadOrigen)->get();
+            $ciudadDestinoResultado = DB::table('ciudades')->select('Nombre')->where('id',$resultadoBusquedaIda[0]->CiudadDestino)->get();
+
+            return view('/resultado',['resultadoBusquedaIda'=>$resultadoBusquedaIda,'resultadoBusquedaVuelta'=>$resultadoBusquedaVuelta,'ciudaOrigenBusqueda'=>$ciudadOrigenResultado,'ciudadDestinoBusqueda'=>$ciudadDestinoResultado]);
+        }
+
+
+        
     }
 
     /**
