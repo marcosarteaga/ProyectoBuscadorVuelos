@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+<?php 
+session_start();
+session_destroy();
+
+
+?>
 
 <title>Buscador</title>
 
@@ -62,7 +68,7 @@
               </div>
               <div class="persent-one">
                  <label class="fa fa-user ml-5"> Adultos</label>
-                  <select class="textboxstyle"   id="adultos">
+                  <select class="textboxstyle" name="adultos"  id="adultos">
                    <option value="1">1 Pasajero</option>
                    <option value="2">2 Pasajero</option>
                    <option value="3">3 Pasajero</option>
