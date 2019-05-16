@@ -1,9 +1,27 @@
 
 <title>Datos Viajeros</title>
   
-@include('includes.in-datosviajeros');
+@include('includes.in-datosviajeros')
+
+<?php
+if (isset($_GET['billeteIda'])) {
+    if ($_GET['billeteVuelta']) {
+        $idBilleteIda = $_GET['billeteIda'];
+        $idBilleteVuelta = $_GET['billeteVuelta'];
+        print_r($idBilleteIda);
+        print_r($idBilleteVuelta);
+    }
+    else{
+        $idBilleteIda = $_GET['billeteIda'];
+        print_r($idBilleteIda);    
+    }
+    
+}
 
 
+
+
+ ?>
 <div class="container">
     <div id="accordion">
         <br>
@@ -97,4 +115,4 @@
     </div>  
 </div>
 
-@include('includes.footer');
+@include('includes.footer')

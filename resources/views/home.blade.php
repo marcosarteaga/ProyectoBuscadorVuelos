@@ -14,8 +14,8 @@
           <li><a class="active" href="#1"><i class="fa fa-plane" aria-hidden="true"></i> Flight</a></li>
        </ul>
        <ul class="mt-4">
-        <li><input type="checkbox" name="IdaVuelta"><label>Ida y Vuelta</label></li>
-        <li> <input type="checkbox" name="soloIda"><label>Solo Ida</label> </li>
+        <li><input type="radio" name="tipoViaje[]" value="IdaVuelta" required><label> Ida y Vuelta</label></li>
+        <li> <input type="radio" name="tipoViaje[]" value="Ida" required><label> Solo Ida</label> </li>
        </ul>
        <div class="tab-content">
         <div id="1" class="tab1 active">
@@ -54,7 +54,7 @@
               </div>
               <div class="persent-one less-per">
                  <label class="fa fa-calendar ml-5"> Fecha ida</label>
-                 <input type="date" name="fechaIda" class="textboxstyle" id="from-date1" placeholder="Fecha Ida">
+                 <input type="date" name="fechaIda" class="textboxstyle" id="from-date1" placeholder="Fecha Ida" required>
               </div>
               <div class="persent-one less-per">
                  <label class="fa fa-calendar ml-5"> Fecha Vuelta</label>
@@ -62,7 +62,7 @@
               </div>
               <div class="persent-one">
                  <label class="fa fa-user ml-5"> Adultos</label>
-                  <select class="textboxstyle" id="passenger">
+                  <select class="textboxstyle"   id="adultos">
                    <option value="1">1 Pasajero</option>
                    <option value="2">2 Pasajero</option>
                    <option value="3">3 Pasajero</option>
@@ -72,7 +72,8 @@
               </div>
               <div class="persent-one mt-4" >
                  <label class="fa fa-user ml-5"> Niños</label> 
-                  <select class="textboxstyle " id="passenger">
+                  <select class="textboxstyle " id="ninos">
+                   <option value="0">-- Niños --</option>
                    <option value="1">1 Niño</option>
                    <option value="2">2 Niños</option>
                    <option value="3">3 Niños</option>

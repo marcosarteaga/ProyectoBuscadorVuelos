@@ -35,10 +35,6 @@ Route::get('/recuperar', function () {
 
 
 
-Route::get('/datosviajeros', function () {
-    return view('datosViajeros');
-});
-
 #Rutas mostrar clientes y billetes Backend
 Route::get('/backend', 'billetes@showClientes');
 
@@ -60,3 +56,7 @@ Route::post('/backend', 'billetes@storeOfertaImage')->name('billetes.storeOferta
 //Ruta resultados de busqueda
 Route::get('/resultado','BuscadorController@index');
 Route::post('/resultado','BuscadorController@resultadoBusqueda');
+
+
+//Ruta datos viajeros
+Route::get('/datosviajeros','DatosViajerosController@index');
