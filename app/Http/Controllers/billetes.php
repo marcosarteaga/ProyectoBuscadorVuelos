@@ -8,6 +8,7 @@ use App\PrimeraOferta;
 use App\SegundaOferta;
 use App\TerceraOferta;
 use Validator;
+use App\pasajeros;
 
 class billetes extends Controller
 {
@@ -18,7 +19,7 @@ class billetes extends Controller
   }
     public function showClientes()
     {	
-    	$arrayClientes = DB::table('pasajeros')->select('id','Nombre','Apellidos','Pasaporte','Email')->paginate(5);
+    	$arrayClientes = DB::table('pasajeros')->select('id','Nombre','Apellidos','Pasaporte','Email')->paginate(1);
         return view('backend',array('arrayClientes'=> $arrayClientes));
 
     }

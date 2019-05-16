@@ -3,7 +3,9 @@ function verBilletes(arrayBillete){
         //creamos la tabla
         var tabla = $("<table>");
 
-        tabla.attr("class","table table-striped custab");
+        tabla.attr("class","table table-striped custab display");
+        tabla.attr("id","table_id");
+        
         //Creamos th para los titulos de cada atributo de cliente
         var thfi = $("<th>").text("Fecha Ida");
         var thfv = $("<th>").text("Fecha Vuelta");

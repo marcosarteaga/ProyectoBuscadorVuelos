@@ -42,6 +42,8 @@ Route::get('/datosviajeros', function () {
 #Rutas mostrar clientes y billetes Backend
 Route::get('/backend', 'billetes@showClientes');
 
+Route::get('/backend', 'filtro@buscar');
+
 
 
 

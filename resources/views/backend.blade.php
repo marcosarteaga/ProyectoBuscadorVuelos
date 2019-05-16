@@ -21,12 +21,24 @@
                     <center id="clientesTable">
                       <h1 style="font-size:40px;color:#55518a"> <i style="font-size:40px;color:#55518a" class="fas fa-plane"></i>  Pasajeros</h1>
 
+
+                    <div class="row" style="margin-bottom: 5%;margin-top: 3%; width: 30%;" >
+                      <form action="/backend">
+                      <input class="form-control " name="busqueda" type="text" placeholder="Search" aria-label="Search">
+                      <button class="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit">Search</button>
+                      </form>
+                    </div>
+
+
+                     
+                      <!-- Search form -->
+                      
                     <script type="text/javascript">
                       var registroClientes = {!! json_encode($arrayClientes->toArray(), JSON_HEX_TAG) !!}['data'];;
                       verClientes(registroClientes);
                     </script>
-                    
-                       <?php  $arrayClientes->links()  ?>
+                    {!!$arrayClientes->render()!!}
+                       
                      
                     </center>
                 </div>
