@@ -18,7 +18,7 @@ class billetes extends Controller
   }
     public function showClientes()
     {	
-    	$arrayClientes = DB::table('pasajeros')->select('id','Nombre','Apellidos','Pasaporte','Email')->get();
+    	$arrayClientes = DB::table('pasajeros')->select('id','Nombre','Apellidos','Pasaporte','Email')->paginate(5);
         return view('backend',array('arrayClientes'=> $arrayClientes));
 
     }

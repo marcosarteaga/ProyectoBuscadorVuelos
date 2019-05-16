@@ -22,9 +22,12 @@
                       <h1 style="font-size:40px;color:#55518a"> <i style="font-size:40px;color:#55518a" class="fas fa-plane"></i>  Pasajeros</h1>
 
                     <script type="text/javascript">
-                      var registroClientes = <?php echo json_encode($arrayClientes);?>;
+                      var registroClientes = {!! json_encode($arrayClientes->toArray(), JSON_HEX_TAG) !!}['data'];;
                       verClientes(registroClientes);
                     </script>
+                    
+                       <?php  $arrayClientes->links()  ?>
+                     
                     </center>
                 </div>
 
