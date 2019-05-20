@@ -15,6 +15,10 @@ class DatosViajerosController extends Controller
     {
         return view('datosViajeros');
     }
+    public function indexPagar()
+    {
+        return view('pagar');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -23,7 +27,7 @@ class DatosViajerosController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -34,7 +38,14 @@ class DatosViajerosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $numeroPasajeros = $request->input('NumeroDePasajeros');
+
+        if ($request->input('IdBilleteVuelta')) {
+            dd($numeroPasajeros);
+        }
+
+        
+        return view('pagar');
     }
 
     /**

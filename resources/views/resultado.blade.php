@@ -5,8 +5,6 @@ session_start();
 $numeroAdultos= $_SESSION["NumeroAdultos"]=$_POST["adultos"];
 
 
-print_r($_SESSION["NumeroAdultos"]);
-
 ?>
 <!DOCTYPE html>
 <html>

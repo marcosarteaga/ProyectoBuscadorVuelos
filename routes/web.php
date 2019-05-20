@@ -60,5 +60,10 @@ Route::get('/resultado','BuscadorController@index');
 Route::post('/resultado','BuscadorController@resultadoBusqueda');
 
 
+//Ruta pagar
+Route::get('/pagar','DatosViajerosController@indexPagar');
+
 //Ruta datos viajeros
 Route::get('/datosviajeros','DatosViajerosController@index');
+Route::post('/pagar','DatosViajerosController@store');
+
