@@ -155,4 +155,23 @@ class billetes extends Controller
         }
     }
 
+     public function showBilleteUser($id)
+    { 
+      $CiudadOrigen = DB::table('billetes')->select('CiudadOrigen')->where('idPasajeros', $id)->get();
+      $CiudadDestino = DB::table('billetes')->select('CiudadDestino')->where('idPasajeros', $id)->get();
+      
+      $origen = DB::table('ciudades')->select('Nombre')->where('id',$CiudadOrigen[0]->CiudadOrigen)->get();
+      $destino = DB::table('ciudades')->select('Nombre')->where('id',$CiudadDestino[0]->CiudadDestino)->get();
+      $arrayBilletes = DB::table('billetes')->select('HoraIDa','HoraVuelta','EstadoBillete','EstadoPago','FechaIda','FechaVuelta','Precio')->where('idPasajeros', $id)->get();
+      return view('verBilletesUser',['arrayBilletes'=> $arrayBilletes,'origen'=> $origen,'destino'=> $destino]);
+    }
+
+
+
+
+
+
+
+
+
 }

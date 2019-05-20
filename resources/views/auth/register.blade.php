@@ -49,6 +49,27 @@
                                 </div>
                             </div>
 
+
+                            <div class="form-group">
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i style="color: #0080FF !important"  class="fa fa-envelope text-info"></i></div>
+                                    </div>
+
+                                   <input id="telefono" type="number" class="form-control{{ $errors->has('telefono') ? ' is-invalid' : '' }}" name="telefono" value="{{ old('telefono') }}" required autocomplete="telefono" autofocus placeholder="telefono">
+
+
+                                    @if ($errors->has('telefono'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('telefono') }}</strong>
+                                        </span>
+                                    @endif
+
+                                </div>
+                            </div>
+
+
+
                             <div class="form-group">
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">

@@ -67,13 +67,6 @@ class DatabaseSeeder extends Seeder
             ['id' => 52, 'idPais' => 1,   'Nombre' => 'Valencia', 'created_at' => new DateTime, 'updated_at' => new DateTime]
         ]);
 
-		DB::table('users')->insert([
-	        ['id' => 1, 'name' => 'marcos'  ,  'email' => 'marcos@gmail.com','password' => 'marcos123' ,'created_at' => new DateTime, 'updated_at' => new DateTime],
-	        ['id' => 2, 'name' => 'miguel'  ,  'email' => 'miguel@gmail.com','password' => 'miguel123' ,'created_at' => new DateTime, 'updated_at' => new DateTime],
-	        ['id' => 3, 'name' => 'cristian'  ,  'email' => 'cristian@gmail.com','password' => 'cristian123' ,'created_at' => new DateTime, 'updated_at' => new DateTime]
-
-
-	    ]);
 
 		DB::table('admin')->insert([
 	        ['id' => 1, 'Nombre' => 'marcos','Password' => 'marcos123' ,'created_at' => new DateTime, 'updated_at' => new DateTime],
