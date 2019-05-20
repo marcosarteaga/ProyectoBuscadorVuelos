@@ -14,8 +14,11 @@
 
 
 
-
+//ver billetes
 Route::get('/billete/{id}', 'billetes@showBillete');
+
+Route::get('/billeteUser/{id}', 'billetes@showBilleteUser');
+
 
 
 
@@ -23,6 +26,15 @@ Route::get('/billete/{id}', 'billetes@showBillete');
 Route::get('/login2', function () {
     return view('login');
 });
+
+
+//vista perfil
+Route::get('/perfil', function () {
+    return view('perfil');
+})->name('perfil');
+
+//update user
+Route::post('/perfil', 'modificarUser@showUser')->name('modificar') ;
 
 
 Route::get('/registro', function () {
