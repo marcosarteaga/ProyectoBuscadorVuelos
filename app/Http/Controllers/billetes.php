@@ -19,7 +19,7 @@ class billetes extends Controller
   }
     public function showClientes()
     {	
-    	$arrayClientes = DB::table('pasajeros')->select('id','Nombre','Apellidos','Pasaporte','Email')->paginate(1);
+    	$arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','Pasaporte','Email')->paginate(1);
         return view('backend',array('arrayClientes'=> $arrayClientes));
 
     }
@@ -69,7 +69,7 @@ class billetes extends Controller
             }
 
             else{
-                $arrayClientes = DB::table('ventasClientes')->select('Nombre','Apellidos','CodiBillete','Pasaporte','Telefono','Ciudad','Pais')->get();
+                $arrayClientes = DB::table('ventasClientes')->select('Nombre','PrimerApellido','SegundoApellido','CodiBillete','Pasaporte','Telefono','Ciudad','Pais')->get();
                 return view('backend',array('arrayClientes'=> $arrayClientes));
             }
 
@@ -106,7 +106,7 @@ class billetes extends Controller
             }
 
             else{
-                $arrayClientes = DB::table('ventasClientes')->select('Nombre','Apellidos','CodiBillete','Pasaporte','Telefono','Ciudad','Pais')->get();
+                $arrayClientes = DB::table('ventasClientes')->select('Nombre','PrimerApellido','SegundoApellido','CodiBillete','Pasaporte','Telefono','Ciudad','Pais')->get();
                 return view('backend',array('arrayClientes'=> $arrayClientes));
             }
 
@@ -141,7 +141,7 @@ class billetes extends Controller
             }
 
             else{
-                $arrayClientes = DB::table('ventasClientes')->select('Nombre','Apellidos','CodiBillete','Pasaporte','Telefono','Ciudad','Pais')->get();
+                $arrayClientes = DB::table('ventasClientes')->select('Nombre','PrimerApellido','SegundoApellido','CodiBillete','Pasaporte','Telefono','Ciudad','Pais')->get();
                 return view('backend',array('arrayClientes'=> $arrayClientes));
             }
 
@@ -150,7 +150,7 @@ class billetes extends Controller
 
 
       else{
-            $arrayClientes = DB::table('ventasClientes')->select('Nombre','Apellidos','CodiBillete','Pasaporte','Telefono','Ciudad','Pais')->get();
+            $arrayClientes = DB::table('ventasClientes')->select('Nombre','PrimerApellido','SegundoApellido','CodiBillete','Pasaporte','Telefono','Ciudad','Pais')->get();
             return view('backend',array('arrayClientes'=> $arrayClientes));
         }
     }
