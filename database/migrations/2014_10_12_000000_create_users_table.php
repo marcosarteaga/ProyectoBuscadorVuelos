@@ -34,6 +34,7 @@ class CreateUsersTable extends Migration
 
         Schema::create('pasajeros', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('IdUser');
             $table->string('Nombre');
             $table->string('PrimerApellido');
             $table->string('SegundoApellido');
