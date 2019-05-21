@@ -76,8 +76,8 @@ class DatabaseSeeder extends Seeder
 
 
 		DB::table('pasajeros')->insert([
-	        ['id' => 1, 'Nombre' => 'Marcos'  ,'PrimerApellido' => 'Arteaga','SegundoApellido'=> 'Valle','NumeroDocumento' => '49899096k','Sexo'=>'Hombre'  ,'created_at' => new DateTime, 'updated_at' => new DateTime],
-	        ['id' => 2, 'Nombre' => 'Miguel'  ,'PrimerApellido' => 'Arteaga','SegundoApellido'=> 'Valle','NumeroDocumento' => '49899095C','Sexo'=>'Hombre'  ,'created_at' => new DateTime, 'updated_at' => new DateTime]
+	        ['id' => 1,'IdUser'=>'1', 'Nombre' => 'Marcos'  ,'PrimerApellido' => 'Arteaga','SegundoApellido'=> 'Valle','NumeroDocumento' => '49899096k','Sexo'=>'Hombre'  ,'created_at' => new DateTime, 'updated_at' => new DateTime],
+	        ['id' => 2,'IdUser'=>'1', 'Nombre' => 'Miguel'  ,'PrimerApellido' => 'Arteaga','SegundoApellido'=> 'Valle','NumeroDocumento' => '49899095C','Sexo'=>'Hombre'  ,'created_at' => new DateTime, 'updated_at' => new DateTime]
 
 	    ]);
 
@@ -95,7 +95,10 @@ class DatabaseSeeder extends Seeder
 
 
 	    DB::table('billetesVentas')->insert([
-            ['id' => 1, 'Fecha' => '2019-05-16','HoraIda' => '15:19:12','HoraLlegada' => '20:19:12','Precio' => 150,'CiudadOrigen' => 20 ,'CiudadDestino' => 5,'created_at' => new DateTime, 'updated_at' => new DateTime]
+            ['id' => 1, 'Fecha' => '2019-05-16','HoraIda' => '15:19:12','HoraLlegada' => '20:19:12','Precio' => 150,'CiudadOrigen' => 20 ,'CiudadDestino' => 5,'created_at' => new DateTime, 'updated_at' => new DateTime],
+            ['id' => 2, 'Fecha' => '2019-05-16','HoraIda' => '15:19:12','HoraLlegada' => '20:19:12','Precio' => 100,'CiudadOrigen' => 20 ,'CiudadDestino' => 5,'created_at' => new DateTime, 'updated_at' => new DateTime],
+            ['id' => 3, 'Fecha' => '2019-05-16','HoraIda' => '15:19:12','HoraLlegada' => '20:19:12','Precio' => 50,'CiudadOrigen' => 5 ,'CiudadDestino' => 20,'created_at' => new DateTime, 'updated_at' => new DateTime],
+            ['id' => 4, 'Fecha' => '2019-05-16','HoraIda' => '15:19:12','HoraLlegada' => '20:19:12','Precio' => 60,'CiudadOrigen' => 5 ,'CiudadDestino' => 20,'created_at' => new DateTime, 'updated_at' => new DateTime]
         ]);
 
 

@@ -43,17 +43,18 @@ class DatosViajerosController extends Controller
         
         $numeroPasajeros = $request->input('NumeroDePasajeros');
         
-        
+
         if ($request->input('IdBilleteVuelta')) {
             $i=1;
             while ( $i<= $numeroPasajeros) {
 
+                $idUsuario = auth()->user()->id;
                 $NombrePasajero = $request->input('NombrePasajero'.$i);
                 $PrimerApellido = $request->input('Papellido'.$i);
                 $SegundoApellido = $request->input('Sapellido'.$i);
                 $NumeroDocumento = $request->input('NumeroDocumento'.$i);
                 $SelectSexo = $request->input('SelectSexo'.$i);
-
+                dd($idUsuario);
 
                 Pasajeros::create([
                     'Nombre'=>$NombrePasajero, 
