@@ -40,7 +40,8 @@ function verBilletes(arrayBillete){
 
         //añadimos la table al div donde se mostrar 
         var divPadre = $("#titulo");
-        divPadre.append(tabla);
+        tabla.css({fontSize: "18px"});
+        divPadre.after(tabla);
        
 
 }
@@ -86,10 +87,10 @@ function verBilletesUser(arrayBillete){
         tr.append(tdfi,tdfv,tdhi,tdhv,tdeb,tdep,tdpr);
         //Añadimos el tr a la tabla
         tabla.append(tr);
-
+        tabla.css({fontSize: "18px"});
         //añadimos la table al div donde se mostrar 
         var divPadre = $("#titulo");
-        divPadre.append(tabla);
+        divPadre.after(tabla);
        
 
 }
