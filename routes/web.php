@@ -28,6 +28,13 @@ Route::get('/login2', function () {
 });
 
 
+Route::get('/loginAdmin', function () {
+    return view('loginAdmin');
+});
+
+Route::post('/loginAdmin', 'loginAdmin@validarUser');
+
+
 //vista perfil
 Route::get('/perfil', function () {
     return view('perfil');
