@@ -12,7 +12,8 @@ class loginAdmin extends Controller
     	$password = $request->input('password');
     	$datosUser=DB::table('admin')->select('Nombre','Password')->get();
     	if ($user == $datosUser[0]->Nombre && $password == $datosUser[0]->Password) {
-    		return view('/backend');
+    		$arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(1);
+        return view('backend',array('arrayClientes'=> $arrayClientes));
     	}else{
     		return view('/loginAdmin');
     	}
