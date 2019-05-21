@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Pasajeros;
+use App\BilletesRegistro;
 
 class DatosViajerosController extends Controller
 {
@@ -54,19 +55,56 @@ class DatosViajerosController extends Controller
                 $SegundoApellido = $request->input('Sapellido'.$i);
                 $NumeroDocumento = $request->input('NumeroDocumento'.$i);
                 $SelectSexo = $request->input('SelectSexo'.$i);
-                dd($idUsuario);
-
+                
+                
                 Pasajeros::create([
-                    'Nombre'=>$NombrePasajero, 
+                    'Nombre'=>$NombrePasajero,
+                    'IdUser'=>$idUsuario, 
                     'PrimerApellido'=>$PrimerApellido,
                     'SegundoApellido'=>$SegundoApellido,
                     'NumeroDocumento'=>$NumeroDocumento,
                     'Sexo'=>$SelectSexo
                 ]);
-
+                
                 $i=$i+1;    
             }
-            //dd($numeroPasajeros, $NombrePasajero , $PrimerApellido, $SegundoApellido ,$NumeroDocumento , $SelectSexo);
+
+            $idPasajeros= Pasajeros::select('id')->where('IdUser',$idUsuario)->get();
+            $NumeroDeIdsPasajeros = count($idPasajeros);
+            
+            $idBilleteIda=$request->input('IdBilleteIda');
+            $DatosBilleteIda=DB::table('billetesVentas')->select('CiudadOrigen','CiudadDestino','Fecha','HoraIda','Precio')->where('id',$idBilleteIda)->get();
+
+            $idBilleteVuelta=$request->input('IdBilleteVuelta');
+
+            $DatosBilleteVuelta=DB::table('billetesVentas')->select('Fecha','HoraIda','Precio')->where('id',$idBilleteVuelta)->get();
+
+            $PrecioDosBilletes=$DatosBilleteIda[0]->Precio+$DatosBilleteVuelta[0]->Precio;
+            $PrecioConComision=$PrecioDosBilletes+100;
+
+            $j=0;
+            
+            while ($j <= $NumeroDeIdsPasajeros-1) {
+
+                BilletesRegistro::create([
+                    'idUser'=>$idUsuario,
+                    'idPasajeros'=>$idPasajeros[$j]->id,
+                    'CiudadOrigen'=>$DatosBilleteIda[0]->CiudadOrigen,
+                    'CiudadDestino'=>$DatosBilleteIda[0]->CiudadDestino,
+                    'FechaIda'=>$DatosBilleteIda[0]->Fecha,
+                    'FechaVuelta'=>$DatosBilleteVuelta[0]->Fecha,
+                    'HoraIda'=>$DatosBilleteIda[0]->HoraIda,
+                    'HoraVuelta'=>$DatosBilleteVuelta[0]->HoraIda,
+                    'EstadoBillete'=>'Emitido',
+                    'EstadoPago'=>'Pagado',
+                    'ComisionPrecio'=>100,
+                    'Precio'=>$PrecioDosBilletes,
+                    'PrecioTotal'=>$PrecioConComision
+                ]);
+                $j=$j+1;
+                
+            }
+        
         }
 
         

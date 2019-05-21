@@ -8,6 +8,6 @@ class Pasajeros extends Model
 {
     protected $table = 'pasajeros';
     protected $fillable = [
-        'id', 'Nombre', 'PrimerApellido','SegundoApellido','NumeroDocumento','Sexo'
+        'id','IdUser','Nombre', 'PrimerApellido','SegundoApellido','NumeroDocumento','Sexo'
     ];
 }
