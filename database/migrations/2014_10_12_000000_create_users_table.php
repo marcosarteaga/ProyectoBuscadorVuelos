@@ -35,9 +35,10 @@ class CreateUsersTable extends Migration
         Schema::create('pasajeros', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('Nombre');
-            $table->string('Apellidos');
-            $table->string('Email');
-            $table->string('Pasaporte');
+            $table->string('PrimerApellido');
+            $table->string('SegundoApellido');
+            $table->string('NumeroDocumento');
+            $table->string('Sexo');
             $table->timestamps();
         });
 
@@ -55,6 +56,7 @@ class CreateUsersTable extends Migration
             $table->string('EstadoPago');
             $table->float('ComisionPrecio');
             $table->float('Precio');
+            $table->float('PrecioTotal');
             $table->timestamps();
         });
 

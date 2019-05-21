@@ -318,7 +318,7 @@ function datosViajeros(elementoPadre,numPasajeros){
                 //divHijo3
                 var divhijo3=$('<div class="col-md-1 col-lg-4">');
                 var divForm3=$('<div class="form-group">');
-                var labelNumeroPasaporte=$('<label class="control-label">Número de Pasaporte</label>');
+                var labelNumeroPasaporte=$('<label class="control-label">Número de documento</label>');
                 var inputNumeroPasaporte=$('<input class="form-control" type="text" name="NumeroDocumento'+i+'"  >');
 
 

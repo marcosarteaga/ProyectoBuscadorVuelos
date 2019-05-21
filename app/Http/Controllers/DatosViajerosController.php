@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use App\Pasajeros;
 
 class DatosViajerosController extends Controller
 {
@@ -38,10 +40,32 @@ class DatosViajerosController extends Controller
      */
     public function store(Request $request)
     {
+        
         $numeroPasajeros = $request->input('NumeroDePasajeros');
-
+        
+        
         if ($request->input('IdBilleteVuelta')) {
-            dd($numeroPasajeros);
+            $i=1;
+            while ( $i<= $numeroPasajeros) {
+
+                $NombrePasajero = $request->input('NombrePasajero'.$i);
+                $PrimerApellido = $request->input('Papellido'.$i);
+                $SegundoApellido = $request->input('Sapellido'.$i);
+                $NumeroDocumento = $request->input('NumeroDocumento'.$i);
+                $SelectSexo = $request->input('SelectSexo'.$i);
+
+
+                Pasajeros::create([
+                    'Nombre'=>$NombrePasajero, 
+                    'PrimerApellido'=>$PrimerApellido,
+                    'SegundoApellido'=>$SegundoApellido,
+                    'NumeroDocumento'=>$NumeroDocumento,
+                    'Sexo'=>$SelectSexo
+                ]);
+
+                $i=$i+1;    
+            }
+            //dd($numeroPasajeros, $NombrePasajero , $PrimerApellido, $SegundoApellido ,$NumeroDocumento , $SelectSexo);
         }
 
         

@@ -76,8 +76,8 @@ class DatabaseSeeder extends Seeder
 
 
 		DB::table('pasajeros')->insert([
-	        ['id' => 1, 'Nombre' => 'marcos'  ,'Apellidos' => 'Arteaga Valle'  ,'Email' => 'marcos@gmail.com','Pasaporte' => '49899096k'  ,'created_at' => new DateTime, 'updated_at' => new DateTime],
-	        ['id' => 2, 'Nombre' => 'miguel'  ,'Apellidos' => 'Arteaga Valle'    ,'Email' => 'miguel@gmail.com','Pasaporte' => '49899095c' ,'created_at' => new DateTime, 'updated_at' => new DateTime]
+	        ['id' => 1, 'Nombre' => 'Marcos'  ,'PrimerApellido' => 'Arteaga','SegundoApellido'=> 'Valle','NumeroDocumento' => '49899096k','Sexo'=>'Hombre'  ,'created_at' => new DateTime, 'updated_at' => new DateTime],
+	        ['id' => 2, 'Nombre' => 'Miguel'  ,'PrimerApellido' => 'Arteaga','SegundoApellido'=> 'Valle','NumeroDocumento' => '49899095C','Sexo'=>'Hombre'  ,'created_at' => new DateTime, 'updated_at' => new DateTime]
 
 	    ]);
 
@@ -88,8 +88,8 @@ class DatabaseSeeder extends Seeder
 
 
 	    DB::table('billetes')->insert([
-	    	['id' => 1,'idUser' => 1,'idPasajeros'=> 1 ,'CiudadOrigen'=> 15,'CiudadDestino'=> 30,'FechaIDa'=>'2019-05-14','FechaVuelta'=>'2019-05-13','HoraIda'=>'15:19:12','HoraVuelta'=>'20:19:12','EstadoBillete'=>'No emitido','EstadoPago'=>'En Espera','ComisionPrecio'=>50,'Precio'=>200,'created_at' => new DateTime, 'updated_at' => new DateTime],
-	    	['id' => 2,'idUser' => 3,'idPasajeros'=> 2 ,'CiudadOrigen'=> 20,'CiudadDestino'=> 5,'FechaIDa'=>'2019-05-14','FechaVuelta'=>'2019-05-13','HoraIda'=>'15:19:12','HoraVuelta'=>'20:19:12','EstadoBillete'=>'emitido','EstadoPago'=>'Pagado','ComisionPrecio'=>40,'Precio'=>150,'created_at' => new DateTime, 'updated_at' => new DateTime]
+	    	['id' => 1,'idUser' => 1,'idPasajeros'=> 1 ,'CiudadOrigen'=> 15,'CiudadDestino'=> 30,'FechaIDa'=>'2019-05-14','FechaVuelta'=>'2019-05-13','HoraIda'=>'15:19:12','HoraVuelta'=>'20:19:12','EstadoBillete'=>'No emitido','EstadoPago'=>'En Espera','ComisionPrecio'=>50,'Precio'=>200,'PrecioTotal'=>250,'created_at' => new DateTime, 'updated_at' => new DateTime],
+	    	['id' => 2,'idUser' => 3,'idPasajeros'=> 2 ,'CiudadOrigen'=> 20,'CiudadDestino'=> 5,'FechaIDa'=>'2019-05-14','FechaVuelta'=>'2019-05-13','HoraIda'=>'15:19:12','HoraVuelta'=>'20:19:12','EstadoBillete'=>'emitido','EstadoPago'=>'Pagado','ComisionPrecio'=>40,'Precio'=>150,'PrecioTotal'=>190,'created_at' => new DateTime, 'updated_at' => new DateTime]
 
 	    ]);
 
