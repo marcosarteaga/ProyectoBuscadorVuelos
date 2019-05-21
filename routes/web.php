@@ -32,7 +32,7 @@ Route::get('/loginAdmin', function () {
     return view('loginAdmin');
 });
 
-Route::post('/loginAdmin', 'loginAdmin@validarUser');
+Route::get('/loginAdmin', 'loginAdmin@validarUser');
 
 
 //vista perfil
