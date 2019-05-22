@@ -10,7 +10,9 @@ class filtro extends Controller
         $busqueda = $request->input('busqueda');
         $arrayClientes = DB::table('pasajeros')->where('Nombre','like','%'.$busqueda.'%')->orwhere('PrimerApellido','like','%'.$busqueda.'%')->orwhere('SegundoApellido','like','%'.$busqueda.'%')->paginate(1);
 
-    	return view('backend',array('arrayClientes'=> $arrayClientes));
+        $comisionActual = DB::table('comision')->select('comision')->where('id',1)->get();
+            
+        return view('backend',['arrayClientes'=> $arrayClientes,'comisionActual'=>$comisionActual]);
 
     }
 }

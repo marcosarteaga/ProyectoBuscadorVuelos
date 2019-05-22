@@ -20,7 +20,9 @@ class billetes extends Controller
     public function showClientes()
     {	
     	$arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(1);
-        return view('backend',array('arrayClientes'=> $arrayClientes));
+      $comisionActual = DB::table('comision')->select('comision')->where('id',1)->get();
+      
+      return view('backend',['arrayClientes'=> $arrayClientes,'comisionActual'=>$comisionActual]);
 
     }
 
@@ -36,8 +38,23 @@ class billetes extends Controller
     }
 
 
+    public function indexComision(){
+      $arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(1);
+      $comisionActual = DB::table('comision')->select('comision')->where('id',1)->get();
+      
+      return view('backend',['arrayClientes'=> $arrayClientes,'comisionActual'=>$comisionActual]);
+    }
 
-    function storeOfertaImage(Request $request){
+    public function updateComision(Request $request){
+      $comision=$request->input('ComisionInput');
+      //dd($comision);
+      DB::table('comision')->where('id',1)->update(['comision'=>$comision]);
+      $arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(1);
+        return back();
+      
+    }
+
+    public function storeOfertaImage(Request $request){
 
         if ($request->hasFile('archivoMultimedia1')) {
             $NumeroOferta = $request->input('ofertaSeleccionada');
@@ -69,8 +86,10 @@ class billetes extends Controller
             }
 
             else{
-                $arrayClientes = DB::table('ventasClientes')->select('Nombre','PrimerApellido','SegundoApellido','CodiBillete','NumeroDocumento','Telefono','Ciudad','Pais')->get();
-                return view('backend',array('arrayClientes'=> $arrayClientes));
+                $arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(1);
+                $comisionActual = DB::table('comision')->select('comision')->where('id',1)->get();
+                
+                return view('backend',['arrayClientes'=> $arrayClientes,'comisionActual'=>$comisionActual]);
             }
 
       }
@@ -106,8 +125,10 @@ class billetes extends Controller
             }
 
             else{
-                $arrayClientes = DB::table('ventasClientes')->select('Nombre','PrimerApellido','SegundoApellido','CodiBillete','NumeroDocumento','Telefono','Ciudad','Pais')->get();
-                return view('backend',array('arrayClientes'=> $arrayClientes));
+                $arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(1);
+                $comisionActual = DB::table('comision')->select('comision')->where('id',1)->get();
+                
+                return view('backend',['arrayClientes'=> $arrayClientes,'comisionActual'=>$comisionActual]);
             }
 
       }
@@ -141,8 +162,10 @@ class billetes extends Controller
             }
 
             else{
-                $arrayClientes = DB::table('ventasClientes')->select('Nombre','PrimerApellido','SegundoApellido','CodiBillete','NumeroDocumento','Telefono','Ciudad','Pais')->get();
-                return view('backend',array('arrayClientes'=> $arrayClientes));
+                $arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(1);
+                $comisionActual = DB::table('comision')->select('comision')->where('id',1)->get();
+                
+                return view('backend',['arrayClientes'=> $arrayClientes,'comisionActual'=>$comisionActual]);
             }
 
       }
@@ -150,8 +173,10 @@ class billetes extends Controller
 
 
       else{
-            $arrayClientes = DB::table('ventasClientes')->select('Nombre','PrimerApellido','SegundoApellido','CodiBillete','NumeroDocumento','Telefono','Ciudad','Pais')->get();
-            return view('backend',array('arrayClientes'=> $arrayClientes));
+            $arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(1);
+            $comisionActual = DB::table('comision')->select('comision')->where('id',1)->get();
+            
+            return view('backend',['arrayClientes'=> $arrayClientes,'comisionActual'=>$comisionActual]);
         }
     }
 

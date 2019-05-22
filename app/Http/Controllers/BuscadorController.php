@@ -34,7 +34,8 @@ class BuscadorController extends Controller
             $resultadoBusqueda = BilletesVentas::select('id','Fecha','HoraIda','HoraLlegada','Precio','CiudadOrigen','CiudadDestino')->where('Fecha',$fechaida)->where('CiudadOrigen',$ciudadorigen)->where('CiudadDestino',$ciudaddestino)->get();
             $ciudadOrigenResultado = DB::table('ciudades')->select('Nombre')->where('id',$resultadoBusqueda[0]->CiudadOrigen)->get();
             $ciudadDestinoResultado = DB::table('ciudades')->select('Nombre')->where('id',$resultadoBusqueda[0]->CiudadDestino)->get();
-            return view('/resultado',['resultadoBusquedaFinal'=>$resultadoBusqueda,'ciudaOrigenBusqueda'=>$ciudadOrigenResultado,'ciudadDestinoBusqueda'=>$ciudadDestinoResultado]);
+            $comisionActual = DB::table('comision')->select('comision')->where('id',1)->get();
+            return view('/resultado',['resultadoBusquedaFinal'=>$resultadoBusqueda,'ciudaOrigenBusqueda'=>$ciudadOrigenResultado,'ciudadDestinoBusqueda'=>$ciudadDestinoResultado,'comisionActual'=>$comisionActual]);
         }
         else{
                  
@@ -47,7 +48,9 @@ class BuscadorController extends Controller
             $ciudadOrigenResultado = DB::table('ciudades')->select('Nombre')->where('id',$resultadoBusquedaIda[0]->CiudadOrigen)->get();
             $ciudadDestinoResultado = DB::table('ciudades')->select('Nombre')->where('id',$resultadoBusquedaIda[0]->CiudadDestino)->get();
 
-            return view('/resultado',['resultadoBusquedaIda'=>$resultadoBusquedaIda,'resultadoBusquedaVuelta'=>$resultadoBusquedaVuelta,'ciudaOrigenBusqueda'=>$ciudadOrigenResultado,'ciudadDestinoBusqueda'=>$ciudadDestinoResultado]);
+            $comisionActual = DB::table('comision')->select('comision')->where('id',1)->get();
+            
+            return view('/resultado',['resultadoBusquedaIda'=>$resultadoBusquedaIda,'resultadoBusquedaVuelta'=>$resultadoBusquedaVuelta,'ciudaOrigenBusqueda'=>$ciudadOrigenResultado,'ciudadDestinoBusqueda'=>$ciudadDestinoResultado,'comisionActual'=>$comisionActual]);
         }
 
 

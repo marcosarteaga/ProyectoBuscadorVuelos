@@ -21,7 +21,7 @@ $numeroAdultos= $_SESSION["NumeroAdultos"]=$_POST["adultos"];
 
 		</div>
 		
-			<input type="submit" class="btn btn-outline-success mt-4" value="Comprar" style="float: right;">
+			<input type="submit" class="btn btn-outline-success mt-4" value="Comprar" style="float: right; margin-bottom: 5%;">
 		</form>	
 	</div>
 </body>
@@ -36,7 +36,9 @@ if ($TipoDeViaje[0]=='Ida') {
 		var arrayResuldatos = <?php echo json_encode($resultadoBusquedaFinal);?>;
 		var arrayCiudadOrigen = <?php echo json_encode($ciudaOrigenBusqueda);?>;
 		var arrayCiudadDestino = <?php echo json_encode($ciudadDestinoBusqueda);?>;
-		ResultadosBilletes('divContenidoResultado',arrayResuldatos,arrayCiudadOrigen,arrayCiudadDestino,100);	
+		var arrayComision = <?php echo json_encode($comisionActual);?>;
+
+		ResultadosBilletes('divContenidoResultado',arrayResuldatos,arrayCiudadOrigen,arrayCiudadDestino,arrayComision);	
 	</script>
 <?php
 }
@@ -47,7 +49,9 @@ else{
 		var arrayResuldatosVuelta = <?php echo json_encode($resultadoBusquedaVuelta);?>;
 		var arrayCiudadOrigen = <?php echo json_encode($ciudaOrigenBusqueda);?>;
 		var arrayCiudadDestino = <?php echo json_encode($ciudadDestinoBusqueda);?>;
-		ResultadosBilletesIdaVuelta('divContenidoResultado',arrayResuldatosIda,arrayResuldatosVuelta,arrayCiudadOrigen,arrayCiudadDestino,100);
+		var arrayComision = <?php echo json_encode($comisionActual);?>;
+
+		ResultadosBilletesIdaVuelta('divContenidoResultado',arrayResuldatosIda,arrayResuldatosVuelta,arrayCiudadOrigen,arrayCiudadDestino,arrayComision);
 
 </script>
 <?php	

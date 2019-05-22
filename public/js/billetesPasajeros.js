@@ -132,7 +132,7 @@ function ResultadosBilletes(elementoPadre,arrayResuldatos,arrayCiudadOrigen,arra
                 var tdhi = $("<td>").append(arrayResuldatos[i]["HoraIda"]);
                 var tdhv = $("<td>").append(arrayResuldatos[i]["HoraLlegada"]);
                 var precioTotal = arrayResuldatos[i]["Precio"];
-                var precioTotalFinal = precioTotal + precioComision;
+                var precioTotalFinal = precioTotal + parseInt(precioComision[0]["comision"]);
                 var tdpr = $("<td>").append(precioTotalFinal);
                 var tdRadio = $('<input type="radio" class="mt-3" name="billeteIda" value="'+arrayResuldatos[i]["id"]+'">');
 
@@ -188,7 +188,7 @@ function ResultadosBilletesIdaVuelta(elementoPadre,arrayResuldatosIda,arrayResul
                 var tdhi = $("<td>").append(arrayResuldatosIda[i]["HoraIda"]);
                 var tdhv = $("<td>").append(arrayResuldatosIda[i]["HoraLlegada"]);
                 var precioTotal = arrayResuldatosIda[i]["Precio"];
-                var precioTotalFinal = precioTotal + precioComision;
+                var precioTotalFinal = precioTotal + parseInt(precioComision[0]["comision"]);
                 var tdpr = $("<td>").append(precioTotalFinal);
                 var tdRadio = $('<input type="radio" class="mt-3" name="billeteIda" value="'+arrayResuldatosIda[i]["id"]+'">');
 
@@ -232,7 +232,7 @@ function ResultadosBilletesIdaVuelta(elementoPadre,arrayResuldatosIda,arrayResul
                 var tdhi = $("<td>").append(arrayResuldatosVuelta[i]["HoraIda"]);
                 var tdhv = $("<td>").append(arrayResuldatosVuelta[i]["HoraLlegada"]);
                 var precioTotal = arrayResuldatosVuelta[i]["Precio"];
-                var precioTotalFinal = precioTotal + precioComision;
+                var precioTotalFinal = precioTotal + parseInt(precioComision[0]["comision"]);
                 var tdpr = $("<td>").append(precioTotalFinal);
                 var tdRadio = $('<input type="radio" class="mt-3" name="billeteVuelta" value="'+arrayResuldatosVuelta[i]["id"]+'">');
                 //Añadimos los td al tr
