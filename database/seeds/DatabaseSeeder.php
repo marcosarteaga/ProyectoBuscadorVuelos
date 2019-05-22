@@ -101,6 +101,9 @@ class DatabaseSeeder extends Seeder
             ['id' => 4, 'Fecha' => '2019-05-16','HoraIda' => '15:19:12','HoraLlegada' => '20:19:12','Precio' => 60,'CiudadOrigen' => 5 ,'CiudadDestino' => 20,'created_at' => new DateTime, 'updated_at' => new DateTime]
         ]);
 
+        DB::table('comision')->insert([
+            ['id'=>1,'comision'=>0,'created_at' => new DateTime, 'updated_at' => new DateTime]
+        ]);
 
 
 

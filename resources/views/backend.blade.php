@@ -23,7 +23,7 @@
 
 
                     <div class="row" style="margin-bottom: 5%;margin-top: 3%; width: 30%;" >
-                      <form action="/backend">
+                      <form action="/backendFiltro">
                       <input class="form-control " name="busqueda" type="text" placeholder="Search" aria-label="Search">
                       <button class="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit">Search</button>
                       </form>
@@ -50,7 +50,18 @@
                 <div class="bhoechie-tab-content">
                     <center>
                       <h1 style="font-size:40px;color:#55518a"> <i style="font-size:40px;color:#55518a" class="fas fa-file-invoice-dollar"></i> Comisión x Billete</h1>
+                      <form method="POST" action="/backendComision">
+                        {{ csrf_field() }}
+                      <label>Comisión actual:</label><br>
+
                       
+                      <?php 
+                      $comisionActualTotal = $comisionActual[0]->comision;
+                      
+                      echo "<input type='number' name='ComisionInput' value='$comisionActualTotal'  class='form-control' style='width: 20%; margin-bottom: 2%; margin-top: 2%;'' >";
+                      ?>
+                      <input type="submit" value="Guardar" class="btn btn-primary mt-4">
+                      </form>
                     </center>
                 </div>
     

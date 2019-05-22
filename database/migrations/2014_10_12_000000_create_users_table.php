@@ -50,9 +50,9 @@ class CreateUsersTable extends Migration
             $table->integer('CiudadOrigen')->references('id')->on('ciudades');
             $table->integer('CiudadDestino')->references('id')->on('ciudades');
             $table->date('FechaIda');
-            $table->date('FechaVuelta');
+            $table->date('FechaVuelta')->nullable();
             $table->time('HoraIda');
-            $table->time('HoraVuelta');
+            $table->time('HoraVuelta')->nullable();
             $table->string('EstadoBillete');
             $table->string('EstadoPago');
             $table->float('ComisionPrecio');

@@ -55,11 +55,8 @@ Route::get('/recuperar', function () {
 
 
 #Rutas mostrar clientes y billetes Backend
+Route::get('/backendFiltro', 'filtro@buscar');
 Route::get('/backend', 'billetes@showClientes');
-
-Route::get('/backend', 'filtro@buscar');
-
-
 
 
 Auth::routes();
@@ -70,9 +67,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/','BuscadorController@show');
 
 
+
 //Ruta para guardar imagen de oferta
 Route::post('/backend', 'billetes@storeOfertaImage')->name('billetes.storeOfertaImage');
-
+//Ruta actualizar comision
+//Route::get('/backendComision','billetes@indexComision');
+Route::post('/backendComision','billetes@updateComision');
 
 //Ruta resultados de busqueda
 Route::get('/resultado','BuscadorController@index');
