@@ -86,3 +86,12 @@ Route::get('/pagar','DatosViajerosController@indexPagar');
 Route::get('/datosviajeros','DatosViajerosController@index');
 Route::post('/pagar','DatosViajerosController@store');
 
+
+//paypal
+
+Route::get('/pagar2', function () {
+    return view('paypal');
+});
+
+Route::post('/paypal','PaymentController@payWithpaypal');
+
