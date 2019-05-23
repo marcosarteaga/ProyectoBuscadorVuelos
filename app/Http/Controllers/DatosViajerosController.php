@@ -15,8 +15,14 @@ class DatosViajerosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('datosViajeros');
+    {   
+        if ( auth()->user()) {
+            return view('datosViajeros');
+        }
+        else{
+            return view('login');    
+        }
+        
     }
     public function indexPagar()
     {

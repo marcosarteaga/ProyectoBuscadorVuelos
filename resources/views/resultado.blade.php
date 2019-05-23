@@ -21,7 +21,7 @@ $numeroAdultos= $_SESSION["NumeroAdultos"]=$_POST["adultos"];
 
 		</div>
 		
-			<input type="submit" class="btn btn-outline-success mt-4" value="Comprar" style="float: right; margin-bottom: 5%;">
+			<input type="submit" class="btn btn-outline-primary mt-4" value="Comprar" style="float: right; margin-bottom: 5%;">
 		</form>	
 	</div>
 </body>

@@ -112,12 +112,12 @@ function ResultadosBilletes(elementoPadre,arrayResuldatos,arrayCiudadOrigen,arra
                 
                 tabla.attr("class","table table-striped custab");
                 //Creamos th para los titulos de cada atributo de cliente
-                var thco = $("<th>").text("Ciudad origen");
-                var thcd = $("<th>").text("Ciudad destino");
-                var thfi = $("<th>").text("Fecha ida");
-                var thhi = $("<th>").text("Hora Ida");
-                var thhv = $("<th>").text("Hora Llegada");
-                var thpr = $("<th>").text("Precio");
+                var thco = $("<th>").text("Ciudad origen").addClass('table-primary');
+                var thcd = $("<th>").text("Ciudad destino").addClass('table-primary');
+                var thfi = $("<th>").text("Fecha ida").addClass('table-primary');
+                var thhi = $("<th>").text("Hora Ida").addClass('table-primary');
+                var thhv = $("<th>").text("Hora Llegada").addClass('table-primary');
+                var thpr = $("<th>").text("Precio").addClass('table-primary');
 
                 //Añadimos los titulos a la tabla
 
@@ -133,7 +133,7 @@ function ResultadosBilletes(elementoPadre,arrayResuldatos,arrayCiudadOrigen,arra
                 var tdhv = $("<td>").append(arrayResuldatos[i]["HoraLlegada"]);
                 var precioTotal = arrayResuldatos[i]["Precio"];
                 var precioTotalFinal = precioTotal + parseInt(precioComision[0]["comision"]);
-                var tdpr = $("<td>").append(precioTotalFinal);
+                var tdpr = $("<td>").append(precioTotalFinal,"€");
                 var tdRadio = $('<input type="radio" class="mt-3" name="billeteIda" value="'+arrayResuldatos[i]["id"]+'">');
 
                 //Añadimos los td al tr
@@ -168,12 +168,12 @@ function ResultadosBilletesIdaVuelta(elementoPadre,arrayResuldatosIda,arrayResul
                 
                 tabla.attr("class","table table-striped custab");
                 //Creamos th para los titulos de cada atributo de cliente
-                var thco = $("<th>").text("Ciudad origen");
-                var thcd = $("<th>").text("Ciudad destino");
-                var thfi = $("<th>").text("Fecha ida");
-                var thhi = $("<th>").text("Hora Ida");
-                var thhv = $("<th>").text("Hora Llegada");
-                var thpr = $("<th>").text("Precio");
+                var thco = $("<th>").text("Ciudad origen").addClass('table-primary');
+                var thcd = $("<th>").text("Ciudad destino").addClass('table-primary');
+                var thfi = $("<th>").text("Fecha ida").addClass('table-primary');
+                var thhi = $("<th>").text("Hora Ida").addClass('table-primary');
+                var thhv = $("<th>").text("Hora Llegada").addClass('table-primary');
+                var thpr = $("<th>").text("Precio").addClass('table-primary');
 
                 //Añadimos los titulos a la tabla
 
@@ -189,7 +189,7 @@ function ResultadosBilletesIdaVuelta(elementoPadre,arrayResuldatosIda,arrayResul
                 var tdhv = $("<td>").append(arrayResuldatosIda[i]["HoraLlegada"]);
                 var precioTotal = arrayResuldatosIda[i]["Precio"];
                 var precioTotalFinal = precioTotal + parseInt(precioComision[0]["comision"]);
-                var tdpr = $("<td>").append(precioTotalFinal);
+                var tdpr = $("<td>").append(precioTotalFinal,"€");
                 var tdRadio = $('<input type="radio" class="mt-3" name="billeteIda" value="'+arrayResuldatosIda[i]["id"]+'">');
 
                 //Añadimos los td al tr
@@ -212,12 +212,12 @@ function ResultadosBilletesIdaVuelta(elementoPadre,arrayResuldatosIda,arrayResul
                 
                 tabla.attr("class","table table-striped custab");
                 //Creamos th para los titulos de cada atributo de cliente
-                var thco = $("<th>").text("Ciudad origen");
-                var thcd = $("<th>").text("Ciudad destino");
-                var thfi = $("<th>").text("Fecha ida");
-                var thhi = $("<th>").text("Hora Ida");
-                var thhv = $("<th>").text("Hora Llegada");
-                var thpr = $("<th>").text("Precio");
+                var thco = $("<th>").text("Ciudad origen").addClass('table-success');
+                var thcd = $("<th>").text("Ciudad destino").addClass('table-success');
+                var thfi = $("<th>").text("Fecha ida").addClass('table-success');
+                var thhi = $("<th>").text("Hora Ida").addClass('table-success');
+                var thhv = $("<th>").text("Hora Llegada").addClass('table-success');
+                var thpr = $("<th>").text("Precio").addClass('table-success');
 
                 //Añadimos los titulos a la tabla
 
@@ -233,7 +233,7 @@ function ResultadosBilletesIdaVuelta(elementoPadre,arrayResuldatosIda,arrayResul
                 var tdhv = $("<td>").append(arrayResuldatosVuelta[i]["HoraLlegada"]);
                 var precioTotal = arrayResuldatosVuelta[i]["Precio"];
                 var precioTotalFinal = precioTotal + parseInt(precioComision[0]["comision"]);
-                var tdpr = $("<td>").append(precioTotalFinal);
+                var tdpr = $("<td>").append(precioTotalFinal,"€");
                 var tdRadio = $('<input type="radio" class="mt-3" name="billeteVuelta" value="'+arrayResuldatosVuelta[i]["id"]+'">');
                 //Añadimos los td al tr
 
@@ -280,7 +280,7 @@ function datosViajeros(elementoPadre,numPasajeros){
                 var divForm1=$('<div class="form-group">');
 
                 var labelNombre=$('<label class="control-label">Nombre</label>');
-                var inputNombre=$(' <input type="text" class="form-control" name="NombrePasajero'+i+'" >');
+                var inputNombre=$(' <input type="text" class="form-control" required  name="NombrePasajero'+i+'" >');
 
                 divForm1.append(labelNombre,inputNombre);
                 divHijo1.append(divForm1);
@@ -384,6 +384,6 @@ function datosViajeros(elementoPadre,numPasajeros){
                 
         }
 
-        var inputSubmit =$('<input type="submit" value="Pagar" class="btn btn-outline-success mb-5 mt-4" style="float: right; margin-right:7%">');
+        var inputSubmit =$('<input type="submit" value="Pagar" class="btn btn-outline-primary mb-5 mt-4" style="float: right; margin-right:7%">');
         elementoPadre.append(inputSubmit);
 }

@@ -1,4 +1,4 @@
-<form method="post" action="/loginAdmin" >
+<form method="post" action="/backend" >
 	{{ csrf_field() }}
 	<label>User</label><br>
 	<input type="text" name="user"><br>

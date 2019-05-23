@@ -20,7 +20,9 @@ Route::get('/billete/{id}', 'billetes@showBillete');
 Route::get('/billeteUser/{id}', 'billetes@showBilleteUser');
 
 
-
+Route::get('/factura', function () {
+    return view('factura');
+});
 
 
 Route::get('/login2', function () {
@@ -32,7 +34,7 @@ Route::get('/loginAdmin', function () {
     return view('loginAdmin');
 });
 
-Route::get('/loginAdmin', 'loginAdmin@validarUser');
+Route::post('/loginAdmin', 'loginAdmin@validarUser');
 
 
 //vista perfil
@@ -86,3 +88,6 @@ Route::get('/pagar','DatosViajerosController@indexPagar');
 Route::get('/datosviajeros','DatosViajerosController@index');
 Route::post('/pagar','DatosViajerosController@store');
 
+
+
+Route::get('pdf','PdfController@descargarPDF');

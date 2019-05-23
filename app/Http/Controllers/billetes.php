@@ -14,11 +14,13 @@ class billetes extends Controller
 {
 
 
-  public function __construct(){
-    $this->middleware('auth');
-  }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function showClientes()
     {	
+
     	$arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(1);
       $comisionActual = DB::table('comision')->select('comision')->where('id',1)->get();
       

@@ -7,6 +7,8 @@ use DB;
 
 class loginAdmin extends Controller
 {
+    
+    
     public function validarUser(Request $request){
     	$user = $request->input('user');
     	$password = $request->input('password');
@@ -19,4 +21,5 @@ class loginAdmin extends Controller
     	}
 
     }
+    
 }
