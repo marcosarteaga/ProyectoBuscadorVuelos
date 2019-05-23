@@ -89,5 +89,11 @@ Route::get('/datosviajeros','DatosViajerosController@index');
 Route::post('/pagar','DatosViajerosController@store');
 
 
-
 Route::get('pdf','PdfController@descargarPDF');
+
+//paypal
+
+
+
+Route::post('/paypal','PaymentController@payWithpaypal');
+Route::get('/status','PaymentController@getPaymentStatus')->name('status');
