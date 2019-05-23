@@ -89,9 +89,7 @@ Route::post('/pagar','DatosViajerosController@store');
 
 //paypal
 
-Route::get('/pagar2', function () {
-    return view('paypal');
-});
+
 
 Route::post('/paypal','PaymentController@payWithpaypal');
-
+Route::get('/status','PaymentController@getPaymentStatus')->name('status');

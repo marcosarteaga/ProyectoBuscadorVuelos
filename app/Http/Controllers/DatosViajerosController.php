@@ -20,7 +20,7 @@ class DatosViajerosController extends Controller
     }
     public function indexPagar()
     {
-        return view('pagar');
+        return view('paywithpaypal');
     }
 
     /**
@@ -180,7 +180,7 @@ class DatosViajerosController extends Controller
         }
 
         
-        return view('pagar');
+        return view('paywithpaypal')->with('PrecioConComision',$PrecioConComision);
     }
 
     /**
