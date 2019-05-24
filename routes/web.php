@@ -34,7 +34,7 @@ Route::get('/loginAdmin', function () {
     return view('loginAdmin');
 });
 
-Route::post('/loginAdmin', 'loginAdmin@validarUser');
+//Route::post('/loginAdmin', 'loginAdmin@validarUser');
 
 
 //vista perfil
@@ -92,8 +92,17 @@ Route::post('/pagar','DatosViajerosController@store');
 Route::get('pdf','PdfController@descargarPDF');
 
 //paypal
-
-
-
 Route::post('/paypal','PaymentController@payWithpaypal');
 Route::get('/status','PaymentController@getPaymentStatus')->name('status');
+
+
+
+//admin route for our multi-auth system
+/*
+Route::prefix('admin')->group(function () {
+    Route::get('/', 'loginAdmin@index')->name('admin.dashboard');
+    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+});
+
+*/

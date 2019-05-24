@@ -25,10 +25,13 @@ class CreateUsersTable extends Migration
         });
 
 
-        Schema::create('admin', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('Nombre');
-            $table->string('Password');
+        Schema::create('admins', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('title');
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
 
@@ -137,7 +140,7 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('paises');
         Schema::dropIfExists('billetes');
         Schema::dropIfExists('pasajeros');
-        Schema::dropIfExists('admin');
         Schema::dropIfExists('users');
+        Schema::dropIfExists('admins');
     }
 }

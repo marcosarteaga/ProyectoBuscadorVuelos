@@ -4,12 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class admin extends Model
+class Admin extends Model
 {
-	 use Notifiable;
+    use Notifiable;
 
-
-	protected $table = 'admin'; 
     protected $guard = 'admin';
 
     /**
@@ -18,7 +16,7 @@ class admin extends Model
      * @var array
      */
     protected $fillable = [
-        'Nombre', 'Password',
+        'Nombre', 'password',
     ];
 
     /**
@@ -29,5 +27,4 @@ class admin extends Model
     protected $hidden = [
         'password', 'remember_token',
     ];
-    
 }

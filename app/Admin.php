@@ -2,7 +2,9 @@
 
 namespace App;
 
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
+
 
 class Admin extends Model
 {
@@ -16,7 +18,7 @@ class Admin extends Model
      * @var array
      */
     protected $fillable = [
-        'user', 'password',
+        'name', 'email', 'password','title',
     ];
 
     /**

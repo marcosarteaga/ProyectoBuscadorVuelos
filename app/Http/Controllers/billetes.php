@@ -9,22 +9,32 @@ use App\SegundaOferta;
 use App\TerceraOferta;
 use Validator;
 use App\pasajeros;
+use Illuminate\Support\Facades\Auth;
 
 class billetes extends Controller
 {
 
-
+  
     public function __construct()
     {
-        $this->middleware('auth');
+      $this->middleware('auth');
     }
     public function showClientes()
     {	
 
     	$arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(1);
       $comisionActual = DB::table('comision')->select('comision')->where('id',1)->get();
+
+      $idUsuario = auth()->user()->id;
       
-      return view('backend',['arrayClientes'=> $arrayClientes,'comisionActual'=>$comisionActual]);
+      $isAdmin = DB::table('users')->select('isAdmin')->where('id',$idUsuario)->get();
+      if ($isAdmin[0]->isAdmin==1) {
+        return view('backend',['arrayClientes'=> $arrayClientes,'comisionActual'=>$comisionActual]);
+      }
+      else{
+        return view('/login');
+      }
+      
 
     }
 

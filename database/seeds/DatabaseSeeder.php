@@ -68,11 +68,6 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-		DB::table('admin')->insert([
-	        ['id' => 1, 'Nombre' => 'marcos','Password' => 'marcos123' ,'created_at' => new DateTime, 'updated_at' => new DateTime],
-	        ['id' => 2, 'Nombre' => 'miguel'  ,'Password' => 'miguel123' ,'created_at' => new DateTime, 'updated_at' => new DateTime]
-
-	    ]);
 
 
 		DB::table('pasajeros')->insert([
