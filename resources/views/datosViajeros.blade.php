@@ -19,7 +19,9 @@ if (isset($_GET['billeteIda'])) {
 
 
 $numerosPasajeros = $_SESSION["NumeroAdultos"];
+$numerosNinosPasajeros = $_SESSION["NumeroNinos"];
 
+echo $numerosNinosPasajeros;
 
  ?>
 
@@ -30,6 +32,7 @@ $numerosPasajeros = $_SESSION["NumeroAdultos"];
         {{ csrf_field() }}
         <?php  
         echo"<input type='hidden' name='NumeroDePasajeros' value='$numerosPasajeros'>";
+        echo"<input type='hidden' name='NumeroDeNinos' value='$numerosNinosPasajeros'>";
         if (isset($idBilleteIda)) {
             if (isset($idBilleteVuelta)) {
                 echo"<input type='hidden' name='IdBilleteIda' value='$idBilleteIda'>";
@@ -39,16 +42,22 @@ $numerosPasajeros = $_SESSION["NumeroAdultos"];
                 echo"<input type='hidden' name='IdBilleteIda' value='$idBilleteIda'>";
             }
         }
-
+            
         ?>
     </form>
     
 </div>
 
+
 @include('includes.footer')
 
 <script type="text/javascript"> 
+
     var numeroPasajeros = '<?php echo $numerosPasajeros;?>'
+    var numerosNinosPas = '<?php echo $numerosNinosPasajeros;?>'
+    var sumapas = parseInt(numeroPasajeros)+parseInt(numerosNinosPas);
     
-    datosViajeros('formulario',numeroPasajeros);
+    console.log(numerosNinosPas);
+    
+    datosViajeros('formulario',sumapas);
 </script>

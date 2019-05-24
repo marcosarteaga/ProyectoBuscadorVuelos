@@ -3,6 +3,7 @@
 session_start();
 
 $numeroAdultos= $_SESSION["NumeroAdultos"]=$_POST["adultos"];
+$numeroNinos= $_SESSION["NumeroNinos"]=$_POST["Nninos"];
 
 
 ?>

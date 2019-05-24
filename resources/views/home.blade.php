@@ -78,8 +78,8 @@ session_destroy();
               </div>
               <div class="persent-one mt-4" >
                  <label class="fa fa-user ml-5"> Niños</label> 
-                  <select class="textboxstyle " id="ninos">
-                   <option value="0">-- Niños --</option>
+                  <select class="textboxstyle " name="Nninos" id="ninos">
+                  
                    <option value="1">1 Niño</option>
                    <option value="2">2 Niños</option>
                    <option value="3">3 Niños</option>
