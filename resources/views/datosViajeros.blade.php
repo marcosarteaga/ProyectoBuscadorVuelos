@@ -21,7 +21,6 @@ if (isset($_GET['billeteIda'])) {
 $numerosPasajeros = $_SESSION["NumeroAdultos"];
 $numerosNinosPasajeros = $_SESSION["NumeroNinos"];
 
-echo $numerosNinosPasajeros;
 
  ?>
 
@@ -57,7 +56,7 @@ echo $numerosNinosPasajeros;
     var numerosNinosPas = '<?php echo $numerosNinosPasajeros;?>'
     var sumapas = parseInt(numeroPasajeros)+parseInt(numerosNinosPas);
     
-    console.log(numerosNinosPas);
+    
     
     datosViajeros('formulario',sumapas);
 </script>

@@ -12,7 +12,8 @@ class CreateUsersTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   
+        Schema::defaultStringLength(191);
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');

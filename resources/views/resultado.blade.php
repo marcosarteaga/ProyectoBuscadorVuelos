@@ -23,7 +23,11 @@ $numeroNinos= $_SESSION["NumeroNinos"]=$_POST["Nninos"];
 		</div>
 		
 			<input type="submit" class="btn btn-outline-primary mt-4" value="Comprar" style="float: right; margin-bottom: 5%;">
-		</form>	
+		</form>
+		<div>
+			<label>TOTAL:</label>
+			<p id="pTotal"></p>
+		</div>	
 	</div>
 </body>
 </html>
@@ -39,7 +43,11 @@ if ($TipoDeViaje[0]=='Ida') {
 		var arrayCiudadDestino = <?php echo json_encode($ciudadDestinoBusqueda);?>;
 		var arrayComision = <?php echo json_encode($comisionActual);?>;
 
-		ResultadosBilletes('divContenidoResultado',arrayResuldatos,arrayCiudadOrigen,arrayCiudadDestino,arrayComision);	
+		var numeroPasajeros2 = '<?php echo $numeroAdultos;?>'
+    	var numerosNinosPas2 = '<?php echo $numeroNinos;?>'
+    	var sumapas2 = parseInt(numeroPasajeros2)+parseInt(numerosNinosPas2);
+
+		ResultadosBilletes('divContenidoResultado',arrayResuldatos,arrayCiudadOrigen,arrayCiudadDestino,arrayComision,sumapas2);	
 	</script>
 <?php
 }
@@ -52,7 +60,11 @@ else{
 		var arrayCiudadDestino = <?php echo json_encode($ciudadDestinoBusqueda);?>;
 		var arrayComision = <?php echo json_encode($comisionActual);?>;
 
-		ResultadosBilletesIdaVuelta('divContenidoResultado',arrayResuldatosIda,arrayResuldatosVuelta,arrayCiudadOrigen,arrayCiudadDestino,arrayComision);
+		var numeroPasajeros2 = '<?php echo $numeroAdultos;?>'
+    	var numerosNinosPas2 = '<?php echo $numeroNinos;?>'
+    	var sumapas2 = parseInt(numeroPasajeros2)+parseInt(numerosNinosPas2);
+
+		ResultadosBilletesIdaVuelta('divContenidoResultado',arrayResuldatosIda,arrayResuldatosVuelta,arrayCiudadOrigen,arrayCiudadDestino,arrayComision,sumapas2);
 
 </script>
 <?php	

@@ -99,7 +99,7 @@ function verBilletesUser(arrayBillete){
 
 
 
-function ResultadosBilletes(elementoPadre,arrayResuldatos,arrayCiudadOrigen,arrayCiudadDestino,precioComision){
+function ResultadosBilletes(elementoPadre,arrayResuldatos,arrayCiudadOrigen,arrayCiudadDestino,precioComision,numeroTotalPasajeros){
         
         var titulo = ('<h3>IDA </3>');
         var divPadre = $("#"+elementoPadre);
@@ -134,7 +134,7 @@ function ResultadosBilletes(elementoPadre,arrayResuldatos,arrayCiudadOrigen,arra
                 var precioTotal = arrayResuldatos[i]["Precio"];
                 var precioTotalFinal = precioTotal + parseInt(precioComision[0]["comision"]);
                 var tdpr = $("<td>").append(precioTotalFinal,"€");
-                var tdRadio = $('<input type="radio" class="mt-3" name="billeteIda" value="'+arrayResuldatos[i]["id"]+'">');
+                var tdRadio = $('<input type="radio" class="mt-3 total" name="billeteIda" id="'+precioTotalFinal+'" onclick="sumar();" value="'+arrayResuldatos[i]["id"]+'">');
 
                 //Añadimos los td al tr
 
@@ -147,6 +147,8 @@ function ResultadosBilletes(elementoPadre,arrayResuldatos,arrayCiudadOrigen,arra
                 divPadre.append(tabla);
        
         }
+        var inputPasajeros = $('<input type="hidden" id="TotalPasajeros"  value="'+numeroTotalPasajeros+'">');
+        divPadre.append(inputPasajeros);
 }
 
 
@@ -155,7 +157,7 @@ function ResultadosBilletes(elementoPadre,arrayResuldatos,arrayCiudadOrigen,arra
 
 
 
-function ResultadosBilletesIdaVuelta(elementoPadre,arrayResuldatosIda,arrayResuldatosVuelta,arrayCiudadOrigen,arrayCiudadDestino,precioComision){
+function ResultadosBilletesIdaVuelta(elementoPadre,arrayResuldatosIda,arrayResuldatosVuelta,arrayCiudadOrigen,arrayCiudadDestino,precioComision,numeroTotalPasajeros){
         
         var tituloIda = ('<h3>IDA </3>');
         var divPadre = $("#"+elementoPadre);
@@ -190,7 +192,7 @@ function ResultadosBilletesIdaVuelta(elementoPadre,arrayResuldatosIda,arrayResul
                 var precioTotal = arrayResuldatosIda[i]["Precio"];
                 var precioTotalFinal = precioTotal + parseInt(precioComision[0]["comision"]);
                 var tdpr = $("<td>").append(precioTotalFinal,"€");
-                var tdRadio = $('<input type="radio" class="mt-3" name="billeteIda" value="'+arrayResuldatosIda[i]["id"]+'">');
+                var tdRadio = $('<input type="radio" class="mt-3 total" name="billeteIda" id="'+precioTotalFinal+'" onclick="sumar();" value="'+arrayResuldatosIda[i]["id"]+'">');
 
                 //Añadimos los td al tr
 
@@ -202,6 +204,8 @@ function ResultadosBilletesIdaVuelta(elementoPadre,arrayResuldatosIda,arrayResul
                 
                 divPadre.append(tabla); 
         }
+        var inputPasajeros = $('<input type="hidden" id="TotalPasajeros"  value="'+numeroTotalPasajeros+'">');
+        divPadre.append(inputPasajeros);
 
         var tituloVuelta = ('<h3>VUELTA </3>');
         divPadre.append(tituloVuelta);
@@ -234,7 +238,7 @@ function ResultadosBilletesIdaVuelta(elementoPadre,arrayResuldatosIda,arrayResul
                 var precioTotal = arrayResuldatosVuelta[i]["Precio"];
                 var precioTotalFinal = precioTotal + parseInt(precioComision[0]["comision"]);
                 var tdpr = $("<td>").append(precioTotalFinal,"€");
-                var tdRadio = $('<input type="radio" class="mt-3" name="billeteVuelta" value="'+arrayResuldatosVuelta[i]["id"]+'">');
+                var tdRadio = $('<input type="radio" class="mt-3 total" name="billeteVuelta" id="'+precioTotalFinal+'" onclick="sumar();" value="'+arrayResuldatosVuelta[i]["id"]+'">');
                 //Añadimos los td al tr
 
                 tr.append(tdcd,tdco,tdfi,tdhi,tdhv,tdpr,tdRadio);
@@ -379,11 +383,36 @@ function datosViajeros(elementoPadre,numPasajeros){
                 divCardBody.append(divRow1,divRow2);
                 divContenedor.append(divAccordion);
 
-                elementoPadre.append(divContenedor);
-
-                
+                elementoPadre.append(divContenedor);    
         }
 
         var inputSubmit =$('<input type="submit" value="Pagar" class="btn btn-outline-primary mb-5 mt-4" style="float: right; margin-right:7%">');
         elementoPadre.append(inputSubmit);
+}
+
+
+function sumar() {
+        var total = 0;
+        var total2=0;
+        $(".total").each(function() {
+                
+                if (isNaN(parseFloat($('input:radio[name=billeteIda]:checked').attr("id")))) {
+                        total=  0;
+                } else {
+                        total= parseFloat($('input:radio[name=billeteIda]:checked').attr("id"));
+                }
+                if (isNaN(parseFloat($('input:radio[name=billeteVuelta]:checked').attr("id")))) {
+                        total2=  0;
+                } else {
+                        total2=  parseFloat($('input:radio[name=billeteVuelta]:checked').attr("id"));
+                }
+                
+        });
+        var pasajerosTotal = $('#TotalPasajeros').val();
+        console.log(pasajerosTotal);
+
+        var totalCostes = total+total2;
+
+        var totalBilletes = totalCostes * pasajerosTotal;
+        document.getElementById('pTotal').innerHTML = totalBilletes +" €";
 }

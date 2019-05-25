@@ -3,7 +3,7 @@
 
 
 
-@include('includes.in-login');
+@include('includes.in-login')
 
 
 <div class="login-form">    
@@ -52,4 +52,4 @@
     @endif
     </div>
 
-@include('includes.footer');
+@include('includes.footer')

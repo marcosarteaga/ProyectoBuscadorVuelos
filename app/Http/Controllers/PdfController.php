@@ -9,6 +9,7 @@ class PdfController extends Controller
 {
     public function descargarPDF(){
     	$pdf = PDF::loadView('factura');
-		return $pdf->download('archivo.pdf');
+
+		return $pdf->download('Billetes.pdf');
     }
 }
