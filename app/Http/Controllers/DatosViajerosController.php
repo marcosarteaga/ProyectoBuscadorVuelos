@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Pasajeros;
 use App\BilletesRegistro;
+use App\Mail\EnviarCorreo;
 
 
 class DatosViajerosController extends Controller
@@ -367,7 +368,11 @@ class DatosViajerosController extends Controller
                 
             }
         }
-        return view('paywithpaypal')->with('PrecioConComision',$PrecioConComision);
+        $totalPasajeros= $numeroPasajeros+$numeroNinos;
+        $totalPagar=$PrecioConComision*$totalPasajeros;
+
+
+        return view('paywithpaypal')->with('totalPagar',$totalPagar);
     }
 
     /**

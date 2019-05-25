@@ -22,7 +22,7 @@ class billetes extends Controller
     public function showClientes()
     {	
 
-    	$arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(1);
+    	$arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(5);
       $comisionActual = DB::table('comision')->select('comision')->where('id',1)->get();
 
       $idUsuario = auth()->user()->id;

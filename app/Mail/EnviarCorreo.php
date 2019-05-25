@@ -7,6 +7,8 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use PDF;
+use DB;
+use App\Pasajeros;
 
 class EnviarCorreo extends Mailable
 {
@@ -29,9 +31,19 @@ class EnviarCorreo extends Mailable
      */
     public function build()
     {
+        $today = new \DateTime();
+        $today->format('Y-m-s H:i:s');
+        $idUsuario = auth()->user()->id;
+        $idPasajero =  Pasajeros::select('id')->where('IdUser',$idUsuario)->get();
+        
+        $arrayPasajeros= Pasajeros::select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento','Sexo')->where('IdUser',$idUsuario)->whereDate('created_at',$today)->get();
+        $arrayFechas = DB::table('billetes')->select('CiudadOrigen','CiudadDestino','FechaIda','FechaVuelta','HoraIda','HoraVuelta')->where('IdUser',$idUsuario)->get();
+
+        $origen = DB::table('ciudades')->select('Nombre')->where('id',$arrayFechas[0]->CiudadOrigen)->get();
+        $destino = DB::table('ciudades')->select('Nombre')->where('id',$arrayFechas[0]->CiudadDestino)->get();
 
        
-        $pdf=PDF::loadView('factura');
+        $pdf=PDF::loadView('factura',['arrayPasajeros'=> $arrayPasajeros,'origen'=> $origen,'destino'=> $destino,'arrayFechas'=>$arrayFechas]);
 
         $nameUsuario = auth()->user()->name;
         //Donde guardar el documento

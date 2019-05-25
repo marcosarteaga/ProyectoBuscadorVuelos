@@ -29,7 +29,7 @@
 	  <p>Demo PayPal form - Integrating paypal in laravel</p>
 	  <p>      
 	  <label class="w3-text-blue"><b>Enter Amount</b></label>
-	  <?php echo "<input class='w3-input w3-border' name='amount' type='number' value='$PrecioConComision' readonly='readonly' >"; ?></p>
+	  <?php echo "<input class='w3-input w3-border' name='amount' type='number' value='$totalPagar' readonly='readonly' >"; ?></p>
 	  <button class="w3-btn w3-blue">Pay with PayPal</button></p>
 	</form>
 </div>

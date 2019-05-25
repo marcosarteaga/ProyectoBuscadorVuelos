@@ -113,7 +113,7 @@ class PaymentController extends Controller
         $result = $payment->execute($execution, $this->_api_context);
         if ($result->getState() == 'approved') {
             \Session::put('success', 'Payment success');
-            return Redirect::to('/');
+            return Redirect::to('/factura');
         }
         \Session::put('error', 'Payment failed');
         return Redirect::to('/');

@@ -20,7 +20,7 @@ Route::get('/billete/{id}', 'billetes@showBillete');
 Route::get('/billeteUser/{id}', 'billetes@showBilleteUser');
 
 
-Route::get('/factura', 'FacturaController@index');
+Route::get('/factura', 'FacturaController@generarFactura');
 
 
 Route::get('/login2', function () {
