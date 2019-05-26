@@ -1,4 +1,6 @@
+
 @include('includes.in-resultadosBusqueda')
+
 <?php 
 session_start();
 
@@ -13,7 +15,7 @@ $numeroTotalPasajeros = $numeroAdultos + $numeroNinos;
 	<meta charset="utf-8">
 	<title>Mostrar Resultados</title>
 </head>
-<body>
+<body >
 	<div class="container">
 		<form method="get" action="datosviajeros">
 		<h2 style="margin-top: 5%">Resultados de la búsqueda</h2>

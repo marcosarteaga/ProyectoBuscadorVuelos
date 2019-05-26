@@ -24,7 +24,7 @@ function showFactura(arrayFactura,corigen,cdestino,fechas){
 					var dtPApell = $("<div>").attr("class","divNombre").text("P.Apellido:");
 					var pApell = $("<div>").attr("class","divAtr").append(arrayFactura[i]["PrimerApellido"]);
 
-					var dtSApell = $("<div>").attr("class","divNombre").text("P.Apellido:");
+					var dtSApell = $("<div>").attr("class","divNombre").text("S.Apellido:");
 					var sApell = $("<div>").attr("class","divAtr").append(arrayFactura[i]["SegundoApellido"]);
 
 					var stDocu = $("<div>").attr("class","divNombre").text("N.Documento:");
@@ -33,7 +33,7 @@ function showFactura(arrayFactura,corigen,cdestino,fechas){
 					var corigen = $("<div>").attr("class","dorigen").text("C.Origen:");
 					var orig = $("<div>").attr("class","dorigen2").append(ciuOri);
 
-					var cdest = $("<div>").attr("class","destino").text("C.Origen:");
+					var cdest = $("<div>").attr("class","destino").text("C.Destino:");
 					var desti = $("<div>").attr("class","destino2").append(ciuDest);
 					var qr = $("<div>").attr("class","qrimg");
 					var imgqr = $("<img>").attr("src","http://www.codigos-qr.com/qr/php/qr_img.php?d=https%3A%2F%2Fagenciauniversotravels.com%2F&s=6&e=m");
@@ -95,7 +95,7 @@ function showFactura(arrayFactura,corigen,cdestino,fechas){
 					var dtPApell = $("<div>").attr("class","divNombre").text("P.Apellido:");
 					var pApell = $("<div>").attr("class","divAtr").append(arrayFactura[i]["PrimerApellido"]);
 
-					var dtSApell = $("<div>").attr("class","divNombre").text("P.Apellido:");
+					var dtSApell = $("<div>").attr("class","divNombre").text("S.Apellido:");
 					var sApell = $("<div>").attr("class","divAtr").append(arrayFactura[i]["SegundoApellido"]);
 
 					var stDocu = $("<div>").attr("class","divNombre").text("N.Documento:");
@@ -104,7 +104,7 @@ function showFactura(arrayFactura,corigen,cdestino,fechas){
 					var corigen = $("<div>").attr("class","dorigen").text("C.Origen:");
 					var orig = $("<div>").attr("class","dorigen2").append(ciuOri);
 
-					var cdest = $("<div>").attr("class","destino").text("C.Origen:");
+					var cdest = $("<div>").attr("class","destino").text("C.Destino:");
 					var desti = $("<div>").attr("class","destino2").append(ciuDest);
 					var qr = $("<div>").attr("class","qrimg");
 					var imgqr = $("<img>").attr("src","http://www.codigos-qr.com/qr/php/qr_img.php?d=https%3A%2F%2Fagenciauniversotravels.com%2F&s=6&e=m");

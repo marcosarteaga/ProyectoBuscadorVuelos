@@ -1,7 +1,7 @@
 @include('includes.in-factura')
 
-
-<h1 id="titulo" >Factura</h1>
+<a href="/" style="float: left; margin-left: 1%;" class="btn btn-primary" >Inicio</a>
+<h1 align="center" id="titulo" >Factura</h1>
 
 
 <script type="text/javascript">
