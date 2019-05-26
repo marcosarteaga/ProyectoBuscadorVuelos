@@ -26,10 +26,8 @@ class PdfController extends Controller
        
 
 
-
-
-
-    	$pdf = PDF::loadView('factura',['arrayPasajeros'=> $arrayPasajeros,'origen'=> $origen,'destino'=> $destino,'arrayFechas'=>$arrayFechas]);
+    	$pdf = PDF::loadView('vistaFacturaPDF',['arrayPasajeros'=> $arrayPasajeros,'origen'=> $origen,'destino'=> $destino,'arrayFechas'=>$arrayFechas]);
+        //$pdf->setPaper('A4', 'landscape');
 
 		return $pdf->download('Billetes.pdf');
     }

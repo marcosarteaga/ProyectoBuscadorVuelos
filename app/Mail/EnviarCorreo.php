@@ -43,8 +43,10 @@ class EnviarCorreo extends Mailable
         $destino = DB::table('ciudades')->select('Nombre')->where('id',$arrayFechas[0]->CiudadDestino)->get();
 
        
-        $pdf=PDF::loadView('factura',['arrayPasajeros'=> $arrayPasajeros,'origen'=> $origen,'destino'=> $destino,'arrayFechas'=>$arrayFechas]);
+        $pdf=PDF::loadView('vistaFacturaPDF',['arrayPasajeros'=> $arrayPasajeros,'origen'=> $origen,'destino'=> $destino,'arrayFechas'=>$arrayFechas]);
 
+        //$pdf->setPaper('A4', 'landscape');
+        
         $nameUsuario = auth()->user()->name;
         //Donde guardar el documento
         $rutaGuardado = public_path().'/billetesPDF/';

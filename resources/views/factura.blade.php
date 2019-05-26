@@ -12,8 +12,7 @@
 	var fechas = <?php echo json_encode($arrayFechas);?>;
 	showFactura(arrayFactura,corigen,cdestino,fechas);
 </script>
-
-
+	
 
 
 <a href="pdf">DESCARGAR</a>

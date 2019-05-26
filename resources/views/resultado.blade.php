@@ -5,7 +5,7 @@ session_start();
 $numeroAdultos= $_SESSION["NumeroAdultos"]=$_POST["adultos"];
 $numeroNinos= $_SESSION["NumeroNinos"]=$_POST["Nninos"];
 
-
+$numeroTotalPasajeros = $numeroAdultos + $numeroNinos;
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,10 +24,10 @@ $numeroNinos= $_SESSION["NumeroNinos"]=$_POST["Nninos"];
 		
 			<input type="submit" class="btn btn-outline-primary mt-4" value="Comprar" style="float: right; margin-bottom: 5%;">
 		</form>
-		<div>
-			<label>TOTAL:</label>
-			<p id="pTotal"></p>
-		</div>	
+		<div style="padding: 1%; background-color:#b8daff; width: 28%; height: 20%; margin-top: 4%;">
+			<h3><u>Total de  <?php echo $numeroTotalPasajeros; ?> pasajeros :</u></h3>
+			<center><h4 id="pTotal"></h4></center>
+		</div>
 	</div>
 </body>
 </html>

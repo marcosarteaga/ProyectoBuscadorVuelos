@@ -89,12 +89,7 @@ class DatabaseSeeder extends Seeder
 	    ]);
 
 
-	    DB::table('billetesVentas')->insert([
-            ['id' => 1, 'Fecha' => '2019-05-16','HoraIda' => '15:19:12','HoraLlegada' => '20:19:12','Precio' => 150,'CiudadOrigen' => 20 ,'CiudadDestino' => 5,'created_at' => new DateTime, 'updated_at' => new DateTime],
-            ['id' => 2, 'Fecha' => '2019-05-16','HoraIda' => '15:19:12','HoraLlegada' => '20:19:12','Precio' => 100,'CiudadOrigen' => 20 ,'CiudadDestino' => 5,'created_at' => new DateTime, 'updated_at' => new DateTime],
-            ['id' => 3, 'Fecha' => '2019-05-16','HoraIda' => '15:19:12','HoraLlegada' => '20:19:12','Precio' => 50,'CiudadOrigen' => 5 ,'CiudadDestino' => 20,'created_at' => new DateTime, 'updated_at' => new DateTime],
-            ['id' => 4, 'Fecha' => '2019-05-16','HoraIda' => '15:19:12','HoraLlegada' => '20:19:12','Precio' => 60,'CiudadOrigen' => 5 ,'CiudadDestino' => 20,'created_at' => new DateTime, 'updated_at' => new DateTime]
-        ]);
+	    
 
         DB::table('comision')->insert([
             ['id'=>1,'comision'=>0,'created_at' => new DateTime, 'updated_at' => new DateTime]
@@ -102,5 +97,107 @@ class DatabaseSeeder extends Seeder
 
 
 
+        $meses=['01','02','03','04','05','06','07','08','09','10','11','12'];
+        $meses28=['02'];
+        $meses30=['04','06','09','11'];
+        $meses31=['01','03','05','07','08','10','12'];
+
+        $cantidadMeses28=count($meses28);
+        $cantidadMeses30=count($meses30);
+        $cantidadMeses31=count($meses31);
+
+        $TotalMeses=$cantidadMeses28+$cantidadMeses30+$cantidadMeses31;
+
+        $ciudades = [['Albacete','1'],['Ciudad Real','2'],['Cuenca','3'],['Guadalajara','4'],['Toledo','5'],['Huesca','6'],['Teruel','7'],['Zaragoza','8'],['Ceuta','9'],['Madrid','10'],['Murcia','11'],['Melilla','12'],['Navarra','13'],['Almería','14'],['Cádiz','15'],['Córdoba','16'],['Granada','17'],['Huelva','18'],['Jaén','19'],['Málaga','20'],['Sevilla','21'],['Asturias','22'],['Cantabria','23'],['Ávila','24'],['Burgos','25'],['León','26'],['Palencia','27'],['Salamanca','28'],['Segovia','29'],['Soria','30'],['Valladolid','31'],['Zamora','32'],['Barcelona','33'],['Gerona','34'],['Lérida','35'],['Tarragona','36'],['Badajoz','37'],['Cáceres','38'],['La Coruña','39'], ['Lugo','40'], ['Orense','41'], ['Pontevedra','42'], ['La Rioja','43'], ['Islas Baleares','44'],['Álava','45'], ['Guipúzcoa','46'], ['Vizcaya','47'], ['Las Palmas','48'],['Santa Cruz De Tenerife','49'],['Alicante','50'],['Castellón','51'], ['Valencia','52']];
+
+        $r=1;
+        
+            
+        
+        for ($i=0; $i < $TotalMeses ; $i++) { 
+
+            if (in_array($meses[$i], $meses28)) {
+
+                for ($j=1; $j <= 28 ; $j++) { 
+                //print_r(date('Y')."-".$meses[$i]."-".$j);
+                    $dig=strlen($j);
+                    if ($dig==1) {
+                        $j="0".$j;
+                    }
+                    $dia=date('Y')."-".$meses[$i]."-".$j;
+                    
+                    for ($c=0; $c < count($ciudades) ; $c++) {
+                        foreach ($ciudades as  $value) {
+                            if ($ciudades[$c][0]!=$value[0]) {
+                                $precio=rand(50,150);
+                                //print_r($r."-".$dia."-".$ciudades[$c][0]."-".$ciudades[$c][1]."-".$value[0]."-".$value[1]."-".$precio."-"."18:00");
+                                DB::table('billetesVentas')->insert([
+                                ['id' => $r, 'Fecha' => $dia,'HoraIda' => '18:00','HoraLlegada' => '10:00','Precio' => $precio,'CiudadOrigen' => $ciudades[$c][1] ,'CiudadDestino' => $value[1],'created_at' => new DateTime, 'updated_at' => new DateTime]
+                                ]);
+
+                                
+                                $r=$r+1; 
+ 
+                            }
+
+                        } 
+
+                    }
+                }
+            }
+            elseif (in_array($meses[$i], $meses30)) {
+                for ($j=1; $j <= 30 ; $j++) { 
+                    //print_r(date('Y')."-".$meses[$i]."-".$j);
+                    $dig=strlen($j);
+                    if ($dig==1) {
+                        $j="0".$j;
+                    }   
+                    $dia=date('Y')."-".$meses[$i]."-".$j;
+                    
+                    for ($c=0; $c < count($ciudades) ; $c++) {
+                        foreach ($ciudades as  $value) {
+                            if ($ciudades[$c][0]!=$value[0]) {
+                                $precio=rand(50,150);
+                                //print_r($r."-".$dia."-".$ciudades[$c][0]."-".$ciudades[$c][1]."-".$value[0]."-".$value[1]."-".$precio."-"."18:00");
+                                DB::table('billetesVentas')->insert([
+                                ['id' => $r, 'Fecha' => $dia,'HoraIda' => '18:00','HoraLlegada' => '10:00','Precio' => $precio,'CiudadOrigen' => $ciudades[$c][1] ,'CiudadDestino' => $value[1],'created_at' => new DateTime, 'updated_at' => new DateTime]
+                                ]);
+                                
+                                $r=$r+1; 
+ 
+                            }
+                        } 
+                    }
+                }
+            }
+            elseif (in_array($meses[$i], $meses31)) {
+                for ($j=1; $j <= 31 ; $j++) { 
+                    //print_r(date('Y')."-".$meses[$i]."-".$j);
+                    $dig=strlen($j);
+                    if ($dig==1) {
+                        $j="0".$j;
+                    }
+                    $dia=date('Y')."-".$meses[$i]."-".$j;
+                    
+                    for ($c=0; $c < count($ciudades) ; $c++) {
+                        foreach ($ciudades as  $value) {
+                            if ($ciudades[$c][0]!=$value[0]) {
+                                $precio=rand(50,150);
+                                //print_r($r."-".$dia."-".$ciudades[$c][0]."-".$ciudades[$c][1]."-".$value[0]."-".$value[1]."-".$precio."-"."18:00");
+                                DB::table('billetesVentas')->insert([
+                                ['id' => $r, 'Fecha' => $dia,'HoraIda' => '18:00','HoraLlegada' => '10:00','Precio' => $precio,'CiudadOrigen' => $ciudades[$c][1] ,'CiudadDestino' => $value[1],'created_at' => new DateTime, 'updated_at' => new DateTime]
+                                ]);
+                                $r=$r+1; 
+ 
+                            }
+
+                        } 
+
+                    }
+                }
+            }
+
+
+        }
     }
 }

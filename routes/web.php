@@ -22,6 +22,8 @@ Route::get('/billeteUser/{id}', 'billetes@showBilleteUser');
 
 Route::get('/factura', 'FacturaController@generarFactura');
 
+Route::get('/vistaFacturaPDF', 'FacturaController@indexFacturaPDF');
+
 
 Route::get('/login2', function () {
     return view('login');
