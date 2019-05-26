@@ -15,10 +15,10 @@ $numeroTotalPasajeros = $numeroAdultos + $numeroNinos;
 	<meta charset="utf-8">
 	<title>Mostrar Resultados</title>
 </head>
-<body >
+<body style="background-color: #EAF3FF" >
 	<div class="container">
 		<form method="get" action="datosviajeros">
-		<h2 style="margin-top: 5%">Resultados de la búsqueda</h2>
+		<h2 align="center" style="margin-top: 5%">Resultados de la búsqueda</h2>
 		<div id="divContenidoResultado">
 			
 

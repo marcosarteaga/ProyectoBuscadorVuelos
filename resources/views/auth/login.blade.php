@@ -7,6 +7,14 @@
 
 @include('includes.in-login');
 
+<style type="text/css">
+    body{
+        background-color: #EAF3FF;
+    }
+</style>
+
+
+
 <div class="login-form">    
     <form method="POST" action="{{ route('login') }}">
         @csrf

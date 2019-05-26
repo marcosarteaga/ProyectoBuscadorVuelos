@@ -1,5 +1,11 @@
 @include('includes.in-factura')
 
+<style type="text/css">
+    body{
+        background-color: #EAF3FF;
+    }
+</style>
+
 <a href="/" style="float: left; margin-left: 1%;" class="btn btn-primary" >Inicio</a>
 <h1 align="center" id="titulo" >Factura</h1>
 

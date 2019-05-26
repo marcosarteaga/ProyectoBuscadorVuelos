@@ -1,6 +1,12 @@
 <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
+<style type="text/css">
+    body{
+        background-color: #EAF3FF;
+    }
+</style>
 
-<div class="w3-container" >
+
+<div  class="w3-container" >
 	@if($message = Session::get('Succes'))
 	<div class="w3-panel w3-green w3-display-container">
 		<span onclick="this.parentElement.style.display='none'" class="w3-button w3-green w3-large w3-display-topright" >&times;</span>

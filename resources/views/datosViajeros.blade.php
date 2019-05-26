@@ -1,7 +1,11 @@
-
 <title>Datos Viajeros</title>
   
 @include('includes.in-datosviajeros')
+<style type="text/css">
+    body{
+        background-color: #EAF3FF;
+    }
+</style>
 
 <?php
 session_start();
@@ -26,7 +30,7 @@ $numerosNinosPasajeros = $_SESSION["NumeroNinos"];
 
 
 <div class="mb-5">
-    <h2 style="margin-top: 2%; margin-left: 7%;">Datos Billetes</h2>
+    <h2 align="center" style="margin-top: 2%;">Datos Billetes</h2>
     <form id="formulario" method="post" action="/pagar">
         {{ csrf_field() }}
         <?php  

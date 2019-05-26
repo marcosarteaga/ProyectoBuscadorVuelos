@@ -1,6 +1,13 @@
 <title>Registro Usuario</title>
   
 @include('includes.in-registro')
+ 
+ <style type="text/css">
+    body{
+        background-color: #EAF3FF;
+    }
+</style>
+
 
 <div class="container ">
     <br><br>

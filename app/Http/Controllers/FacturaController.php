@@ -39,9 +39,9 @@ class FacturaController extends Controller
         $origen = DB::table('ciudades')->select('Nombre')->where('id',$arrayFechas[0]->CiudadOrigen)->get();
         $destino = DB::table('ciudades')->select('Nombre')->where('id',$arrayFechas[0]->CiudadDestino)->get();
 
-        //$mailUsuario = auth()->user()->email;
-        //$mail = "prueba";
-        //\Mail::to($mailUsuario)->send(new EnviarCorreo($mail));
+        $mailUsuario = auth()->user()->email;
+        $mail = "prueba";
+        \Mail::to($mailUsuario)->send(new EnviarCorreo($mail));
  
         
         
