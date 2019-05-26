@@ -47,7 +47,7 @@ if ($TipoDeViaje[0]=='Ida') {
 
 		var numeroPasajeros2 = '<?php echo $numeroAdultos;?>'
     	var numerosNinosPas2 = '<?php echo $numeroNinos;?>'
-    	var sumapas2 = parseInt(numeroPasajeros2)+parseInt(numerosNinosPas2);
+    	var sumapas2 = parseFloat(numeroPasajeros2)+parseFloat(numerosNinosPas2);
 
 		ResultadosBilletes('divContenidoResultado',arrayResuldatos,arrayCiudadOrigen,arrayCiudadDestino,arrayComision,sumapas2);	
 	</script>

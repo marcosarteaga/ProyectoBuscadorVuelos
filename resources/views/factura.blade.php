@@ -21,4 +21,4 @@
 	
 
 
-<a href="pdf">DESCARGAR</a>
+<a class="btn btn-success" style="margin-left: 65%; margin-top: 3%; margin-bottom: 3%;"s href="pdf">DESCARGAR</a>

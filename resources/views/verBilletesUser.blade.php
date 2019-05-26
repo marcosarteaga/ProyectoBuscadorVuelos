@@ -1,4 +1,10 @@
 @include('includes.in-billetesPasajeros')
+<style type="text/css">
+    body{
+        background-color: #EAF3FF;
+    }
+</style>
+
 
 <a href="/" style="float: left;" class="btn btn-primary" >Volver</a>
 	
