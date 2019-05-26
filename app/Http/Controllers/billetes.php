@@ -51,7 +51,7 @@ class billetes extends Controller
 
 
     public function indexComision(){
-      $arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(1);
+      $arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(5);
       $comisionActual = DB::table('comision')->select('comision')->where('id',1)->get();
       
       return view('backend',['arrayClientes'=> $arrayClientes,'comisionActual'=>$comisionActual]);
@@ -61,7 +61,7 @@ class billetes extends Controller
       $comision=$request->input('ComisionInput');
       //dd($comision);
       DB::table('comision')->where('id',1)->update(['comision'=>$comision]);
-      $arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(1);
+      $arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(5);
         return back();
       
     }
@@ -98,7 +98,7 @@ class billetes extends Controller
             }
 
             else{
-                $arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(1);
+                $arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(5);
                 $comisionActual = DB::table('comision')->select('comision')->where('id',1)->get();
                 
                 return view('backend',['arrayClientes'=> $arrayClientes,'comisionActual'=>$comisionActual]);
@@ -137,7 +137,7 @@ class billetes extends Controller
             }
 
             else{
-                $arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(1);
+                $arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(5);
                 $comisionActual = DB::table('comision')->select('comision')->where('id',1)->get();
                 
                 return view('backend',['arrayClientes'=> $arrayClientes,'comisionActual'=>$comisionActual]);
@@ -174,7 +174,7 @@ class billetes extends Controller
             }
 
             else{
-                $arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(1);
+                $arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(5);
                 $comisionActual = DB::table('comision')->select('comision')->where('id',1)->get();
                 
                 return view('backend',['arrayClientes'=> $arrayClientes,'comisionActual'=>$comisionActual]);
@@ -185,7 +185,7 @@ class billetes extends Controller
 
 
       else{
-            $arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(1);
+            $arrayClientes = DB::table('pasajeros')->select('id','Nombre','PrimerApellido','SegundoApellido','NumeroDocumento')->paginate(5);
             $comisionActual = DB::table('comision')->select('comision')->where('id',1)->get();
             
             return view('backend',['arrayClientes'=> $arrayClientes,'comisionActual'=>$comisionActual]);
@@ -194,12 +194,15 @@ class billetes extends Controller
 
      public function showBilleteUser($id)
     { 
-      $CiudadOrigen = DB::table('billetes')->select('CiudadOrigen')->where('idPasajeros', $id)->get();
-      $CiudadDestino = DB::table('billetes')->select('CiudadDestino')->where('idPasajeros', $id)->get();
+
+      $idPasajero = DB::table('pasajeros')->select('id')->where('IdUser', $id)->get();
       
+      $CiudadOrigen = DB::table('billetes')->select('CiudadOrigen')->where('idPasajeros', $idPasajero[0]->id)->get();
+      $CiudadDestino = DB::table('billetes')->select('CiudadDestino')->where('idPasajeros', $idPasajero[0]->id)->get();
       $origen = DB::table('ciudades')->select('Nombre')->where('id',$CiudadOrigen[0]->CiudadOrigen)->get();
       $destino = DB::table('ciudades')->select('Nombre')->where('id',$CiudadDestino[0]->CiudadDestino)->get();
-      $arrayBilletes = DB::table('billetes')->select('HoraIDa','HoraVuelta','EstadoBillete','EstadoPago','FechaIda','FechaVuelta','Precio')->where('idPasajeros', $id)->get();
+      $arrayBilletes = DB::table('billetes')->select('HoraIDa','HoraVuelta','EstadoBillete','EstadoPago','FechaIda','FechaVuelta','Precio')->where('idUser', $id)->get();
+      
       return view('verBilletesUser',['arrayBilletes'=> $arrayBilletes,'origen'=> $origen,'destino'=> $destino]);
     }
 

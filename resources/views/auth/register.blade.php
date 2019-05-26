@@ -53,7 +53,7 @@
                             <div class="form-group">
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
-                                        <div class="input-group-text"><i style="color: #0080FF !important"  class="fa fa-envelope text-info"></i></div>
+                                        <div class="input-group-text"><i style="color: #0080FF !important"  class="fas fa-phone-volume"></i></div>
                                     </div>
 
                                    <input id="telefono" type="number" class="form-control{{ $errors->has('telefono') ? ' is-invalid' : '' }}" name="telefono" value="{{ old('telefono') }}" required autocomplete="telefono" autofocus placeholder="telefono">
@@ -99,11 +99,12 @@
                             </div>
 
                             <div class="text-center">
-                                <button type="submit" class="btn btn-info btn-block rounded-0 py-2">
+                                <button style=" background-color: #0080FF" type="submit" class="btn btn-info btn-block rounded-0 py-2">
                                     {{ __('Registrarse') }}
                                 </button>
                             </div>
                         </div>
+
 
                     </div>
                 </form>
