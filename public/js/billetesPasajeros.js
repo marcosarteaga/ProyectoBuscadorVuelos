@@ -193,6 +193,8 @@ function ResultadosBilletesIdaVuelta(elementoPadre,arrayResuldatosIda,arrayResul
                 var precioTotalFinal = precioTotal + parseInt(precioComision[0]["comision"]);
                 var tdpr = $("<td>").append(precioTotalFinal,"€");
                 var tdRadio = $('<input type="radio" class="mt-3 total" name="billeteIda" id="'+precioTotalFinal+'" onclick="sumar();" value="'+arrayResuldatosIda[i]["id"]+'">');
+                
+                console.log(precioComision[0]["comision"]);
 
                 //Añadimos los td al tr
 
@@ -295,7 +297,7 @@ function datosViajeros(elementoPadre,numPasajeros){
                 var divhijo2=$('<div class="col-md-1 col-lg-4">');
                 var divForm2=$('<div class="form-group">');
                 var labelPapellido=$('<label class="control-label">Primer apellido</label>');
-                var inputPapellidos=$('<input type="text" class="form-control" name="Papellido'+i+'" >');
+                var inputPapellidos=$('<input type="text" class="form-control" required name="Papellido'+i+'" >');
 
                 divForm2.append(labelPapellido,inputPapellidos);
                 divhijo2.append(divForm2);
@@ -306,7 +308,7 @@ function datosViajeros(elementoPadre,numPasajeros){
                 var divhijo21=$('<div class="col-md-1 col-lg-4">');
                 var divForm21=$('<div class="form-group">');
                 var labelSapellidos=$('<label class="control-label">Segundo apellido</label>');
-                var inputSapellidos=$('<input type="text" class="form-control" name="Sapellido'+i+'" >');
+                var inputSapellidos=$('<input type="text" class="form-control" required name="Sapellido'+i+'" >');
 
                 divForm21.append(labelSapellidos,inputSapellidos);
                 divhijo21.append(divForm21);
@@ -323,7 +325,7 @@ function datosViajeros(elementoPadre,numPasajeros){
                 var divhijo3=$('<div class="col-md-1 col-lg-4">');
                 var divForm3=$('<div class="form-group">');
                 var labelNumeroPasaporte=$('<label class="control-label">Número de documento</label>');
-                var inputNumeroPasaporte=$('<input class="form-control" type="text" name="NumeroDocumento'+i+'"  >');
+                var inputNumeroPasaporte=$('<input class="form-control" type="text" required name="NumeroDocumento'+i+'"  >');
 
 
                 //divHijo5
